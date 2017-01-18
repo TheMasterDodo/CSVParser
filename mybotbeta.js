@@ -86,14 +86,21 @@ bot.on("message", msg => {
 
     if (msg.content.startsWith(config.prefix + "ping")) {
         msg.channel.sendMessage("pong!");
+
     } else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) {
         msg.channel.sendMessage("おかえりなさいませ！ご主人様♥, \nDo you want dinner or a shower or \*blushes\* me?");
+
+    } else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("spades"))) {
+        msg.channel.sendMessage("おかえりなさいませ！ご主人様 :anger:, \nWell, I don't have much of a choice. I guess I'll end this here since I got ~~Shido~~ Spades-san to pat my head today.----right, all of me?");
+
     } else if (msg.content.startsWith(config.prefix + "tadaima")) {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
+
     } else if (msg.content.startsWith("!pull")) { // Single pull
         pull = coocooPull(false);
         msg.channel.sendMessage(pull);
-    } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
+
+    } else if (msg.content.startsWith(config.prefix + "whale") && (msg.channel.id !== "188363158107324418")) { // 10x pull
         if (msg.author.id.startsWith(config.ownerID)) { // My hack
             pull10 = coocooPull10(false); // Changing this to true gives me SS pulls
             msg.channel.sendMessage(pull10);
