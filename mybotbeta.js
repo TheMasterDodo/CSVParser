@@ -4,8 +4,8 @@ const config = require("/Users/Chang-Syuan/fwtproject/config.json");
 const setTable = require("/Users/Chang-Syuan/fwtproject/FWTSetData.json");
 const aliasTable = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
 var aliasList = {};
-for (let i = 0, setnum = aliasList.length; i < setnum; i++) {
-    for (let j = 0, len = aliasList[i]["aliases"].length; j < len; j++) 
+for (let i = 0, setnum = aliasTable.length; i < setnum; i++) {
+    for (let j = 0, len = aliasTable[i]["aliases"].length; j < len; j++) 
         aliasList.appendChild(aliasTable[i]["aliases"][j]:aliasTable[i]["name"]);
 }
 
