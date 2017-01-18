@@ -2,7 +2,12 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Chang-Syuan/fwtproject/config.json");
 const setTable = require("/Users/Chang-Syuan/fwtproject/FWTSetData.json");
-const aliasList = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
+const aliasTable = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
+var aliasList = {};
+for (let i = 0, setnum = aliasList.length; i < setnum; i++) {
+    for (let j = 0, len = aliasList[i]["aliases"].length; j < len; j++) 
+        aliasList.appendChild(aliasTable[i]["aliases"][j]:aliasTable[i]["name"]);
+}
 
 function coocooPull(isLast, isDodo) {
     var number = Math.random();
@@ -53,12 +58,8 @@ function coocooPull10(isDodo) {
 };
 
 function nameByAlias(alias) {
-    for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
-      	for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
-          	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
-        }
-    }
-  	return "nosuchalias";
+    if (aliasList.hasOwnProperty(alias)) return aliasList[alias];
+  	else return "nosuchalias";
 }
 
 function findSet(alias) {
