@@ -115,11 +115,8 @@ bot.on("message", msg => {
         var setLocation = message.indexOf(" ", 0);
         var setName = message.slice(setLocation + 1, messageLength);
         var setInfo = findSet(setName.toLowerCase());
-        if (setInfo != "nosuchset") {
-            msg.channel.sendMessage(setInfo);
-        } else if (setInfo == "nosuchset") {
-            msg.channel.sendMessage("Unknown Set!");
-        }
+        if (setInfo != "nosuchset") msg.channel.sendMessage(setInfo);
+        else msg.channel.sendMessage("Unknown Set!");
     }
 });
 bot.on("ready", () => {
