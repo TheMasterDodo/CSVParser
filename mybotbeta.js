@@ -2,12 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Chang-Syuan/fwtproject/config.json");
 const setTable = require("/Users/Chang-Syuan/fwtproject/FWTSetData.json");
-const aliasTable = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
-var aliasList = {};
-for (let i = 0, setnum = aliasTable.length; i < setnum; i++) {
-    for (let j = 0, len = aliasTable[i]["aliases"].length; j < len; j++) 
-        aliasList.appendChild(aliasTable[i]["aliases"][j]:aliasTable[i]["name"]);
-}
+const aliasList = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
 
 function coocooPull(isLast, isDodo) {
     var number = Math.random();
@@ -58,8 +53,12 @@ function coocooPull10(isDodo) {
 };
 
 function nameByAlias(alias) {
-    if (aliasList.hasOwnProperty(alias)) return aliasList[alias];
-  	else return "nosuchalias";
+    for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
+      	for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
+          	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
+        }
+    }
+  	return "nosuchalias";
 }
 
 function findSet(alias) {
@@ -85,7 +84,13 @@ bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if (msg.content.startsWith(config.prefix + "ping")) {
+    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix)) && (msg.content.startsWith(config.prefix + config.ReservedAllowedCommands) !== true)) {
+        msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
+        return;
+    }
+
+
+    if (msg.content.startsWith(config.prefix + "ping")) { // Testing purposes
         msg.channel.sendMessage("pong!");
 
     } else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) {
@@ -101,14 +106,10 @@ bot.on("message", msg => {
         pull = coocooPull(false);
         msg.channel.sendMessage(pull);
 
-    } else if (msg.content.startsWith(config.prefix + "whale") && (msg.channel.id !== "188363158107324418")) { // 10x pull
-        if (msg.author.id.startsWith(config.ownerID)) { // My hack
-            pull10 = coocooPull10(false); // Changing this to true gives me SS pulls
-            msg.channel.sendMessage(pull10);
-        } else {
-            pull10 = coocooPull10(false);
-            msg.channel.sendMessage(pull10);
-        }
+    } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
+        pull10 = coocooPull10(false);
+        msg.channel.sendMessage(pull10);
+
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
         var message = msg.content;
         var messageLength = message.length;
