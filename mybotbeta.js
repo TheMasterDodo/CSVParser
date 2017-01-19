@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const config = require("/Users/Chang-Syuan/fwtproject/config.json");
-const setTable = require("/Users/Chang-Syuan/fwtproject/FWTSetData.json");
-const aliasList = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
+const config = require("/Users/Shared/config.json");
+const setTable = require(config.FilePath + "/FWTSetData.json");
+const aliasList = require(config.FilePath + "/FWTSetAliases.json");
 
 
 function coocooPull(isLast) {
@@ -34,8 +34,8 @@ function coocooPull10(GuildID) {
 };
 
 function findEmojiFromGuildByName(guild, emoji_name) {
-  const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
-  return emoji ? emoji.toString() : emoji_name;
+    const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
+    return emoji ? emoji.toString() : emoji_name;
 };
 
 function nameByAlias(alias) {
@@ -88,16 +88,12 @@ bot.on("message", msg => {
     } else if (msg.content.startsWith(config.prefix + "tadaima")) {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
-    } else if (msg.content.startsWith(config.prefix + "moe")) {
-        document.getElementById("y".src = "/Users/Chang-Syuan/fwtproject/BantAbusedMe/moe.jpg");
-        msg.channel.sendMessage();
-
     } else if (msg.content.startsWith("!pull")) { // Single pull
         msg.channel.sendMessage(findEmojiFromGuildByName(msg.guild, coocooPull()));
 
     } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
         const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
-        msg.channel.sendMessage(pulls.join(''));
+        msg.channel.sendMessage(pulls.join(" "));
 
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
         var message = msg.content;
