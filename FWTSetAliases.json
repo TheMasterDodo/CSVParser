@@ -180,7 +180,7 @@
   },
   {
     "name": "Root Vine Walk",
-    "aliases": ["root vine walk", "root vine", "vine", "serendi"]
+    "aliases": ["root vine walk", "root vine", "vine"]
   },
   {
     "name": "Material Collector",
@@ -556,7 +556,7 @@
   },
   {
     "name": "Legacy of the High Humans",
-    "aliases": ["legacy of the high humans", "high human legacy", "hh legacy", "legacy", "hh", "ecto"]
+    "aliases": ["legacy of the high humans", "high human legacy", "hh legacy", "lhh", "hh", "ecto", "hhl", "ectoplasm"]
   },
   {
     "name": "Die to Live",

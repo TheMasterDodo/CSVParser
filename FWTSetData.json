@@ -688,8 +688,8 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increase Hit Rate by 220 every turn",
-    "3pc": "Increase Attack by 782 every turn",
+    "2pc": "Increase Hit Rate by 220 every turn (Max 1110)",
+    "3pc": "Increase Attack by 782 every turn (Max 782)",
     "Restrictions": "Activates the Set effects at the beginning of combat"
   },
   {
@@ -898,7 +898,7 @@
     "Armor": "Boots",
     "Accessory": "Brooch",
     "2pc": "Increases attack damage by 3%. The value can be up to 12%",
-    "3pc": "Increases critical damage by 3%. The value can be up tp 12%",
+    "3pc": "Increases critical damage by 3%. The value can be up to 12%",
     "Restrictions": "Activates on owner's skill use on an enemy"
   },
   {
