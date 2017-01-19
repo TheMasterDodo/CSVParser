@@ -5,9 +5,9 @@ const setTable = require("/Users/Chang-Syuan/fwtproject/FWTSetData.json");
 const aliasList = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
 
 
-function coocooPull(isLast, GuildID) {
+function coocooPull(isLast) {
     var number = Math.random();
-    var pull = "";
+    var pull;
     if (isLast) {
         var junkrate = 0;
         var platrate = 0;
@@ -19,32 +19,23 @@ function coocooPull(isLast, GuildID) {
         var arate = 0.1;
         var srate = 0.045;
     }
-    if (GuildID == config.FWTDiscord) {
-        if (number < junkrate) pull = "<:junk:271555917307183105>";
-        else if (junkrate <= number && number < junkrate + platrate) pull = "<:platinum:271302393713524738>";
-        else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "<:A_set:271299731517341697>";
-        else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "<:S_set:271299731999686656>";
-        else pull = "<:SS_set:271299731919994880>";
-
-    } else if (GuildID == config.Reserved) {
-        if (number < junkrate) pull = "<:junk:269584481944338432>";
-        else if (junkrate <= number && number < junkrate + platrate) pull = "<:platinum:269584501200519170>";
-        else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "<:A_set:269588637597958144>";
-        else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "<:S_set:269588682275553282>";
-        else pull = "<:SS_set:269588698113245184>";
-    }
+    if (number < junkrate) pull = "junk";
+    else if (junkrate <= number && number < junkrate + platrate) pull = "platinum";
+    else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "A_set";
+    else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "S_set";
+    else pull = "SS_set";
     return pull;
 };
 
 function coocooPull10(GuildID) {
-    var pull10 = "";
-    for (var i = 0; i < 9; i++) {
-        pull = coocooPull(false, GuildID);
-        pull10 = pull10 + pull + " ";
-    }
-    pull = coocooPull(true, GuildID);
-    pull10 = pull10 + pull;
-    return pull10;
+    var pull10 = new Array(10);
+    pull10.fill(null);
+    return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
+};
+
+function findEmojiFromGuildByName(guild, emoji_name) {
+  const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
+  return emoji ? emoji.toString() : emoji_name;
 };
 
 function nameByAlias(alias) {
@@ -102,13 +93,11 @@ bot.on("message", msg => {
         msg.channel.sendMessage();
 
     } else if (msg.content.startsWith("!pull")) { // Single pull
-        pull = coocooPull(false);
-        msg.channel.sendMessage(pull);
+        msg.channel.sendMessage(findEmojiFromGuildByName(msg.guild, coocooPull()));
 
     } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
-        var GuildID = msg.guild.id;
-        pull10 = coocooPull10(GuildID);
-        msg.channel.sendMessage(pull10);
+        const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
+        msg.channel.sendMessage(pulls.join(''));
 
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
         var message = msg.content;
