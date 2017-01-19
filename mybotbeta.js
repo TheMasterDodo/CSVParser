@@ -4,7 +4,8 @@ const config = require("/Users/Chang-Syuan/fwtproject/config.json");
 const setTable = require("/Users/Chang-Syuan/fwtproject/FWTSetData.json");
 const aliasList = require("/Users/Chang-Syuan/fwtproject/FWTSetAliases.json");
 
-function coocooPull(isLast, isDodo) {
+
+function coocooPull(isLast, GuildID) {
     var number = Math.random();
     var pull = "";
     if (isLast) {
@@ -12,43 +13,37 @@ function coocooPull(isLast, isDodo) {
         var platrate = 0;
         var arate = 0.7;
         var srate = 0.27;
-    } else if (isDodo) {
-        var junkrate = 0;
-        var platrate = 0;
-        var arate = 0.0;
-        var srate = 0.0;
     } else {
         var junkrate = 0.55;
         var platrate = 0.28;
         var arate = 0.1;
         var srate = 0.045;
     }
-    if (number < junkrate) pull = "<:junk:269584481944338432>";
-    else if (junkrate <= number && number < junkrate + platrate) pull = "<:platinum:269584501200519170>";
-    else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "<:A_set:269588637597958144>";
-    else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "<:S_set:269588682275553282>";
-    else pull = "<:SS_set:269588698113245184>";
+    if (GuildID == config.FWTDiscord) {
+        if (number < junkrate) pull = "<:junk:271301591682908162>";
+        else if (junkrate <= number && number < junkrate + platrate) pull = "<:platinum:271302393713524738>";
+        else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "<:A_set:271299731517341697>";
+        else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "<:S_set:271299731999686656>";
+        else pull = "<:SS_set:271299731919994880>";
+
+    } else if (GuildID == config.Reserved) {
+        if (number < junkrate) pull = "<:junk:269584481944338432>";
+        else if (junkrate <= number && number < junkrate + platrate) pull = "<:platinum:269584501200519170>";
+        else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "<:A_set:269588637597958144>";
+        else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "<:S_set:269588682275553282>";
+        else pull = "<:SS_set:269588698113245184>";
+    }
     return pull;
 };
 
-function coocooPull10(isDodo) {
-    if (isDodo) {
-        var pull10 = "";
-        for (var i = 0; i < 9; i++) {
-            pull = coocooPull(false, true);
-            pull10 = pull10 + pull + " ";
-        };
-        pull = coocooPull(false, true);
-        pull10 = pull10 + " " + pull;
-    } else {
-        var pull10 = "";
-        for (var i = 0; i < 9; i++) {
-            pull = coocooPull(false, false);
-            pull10 = pull10 + pull + " ";
-        };
-        pull = coocooPull(true, false);
-        pull10 = pull10 + pull;
+function coocooPull10(GuildID) {
+    var pull10 = "";
+    for (var i = 0; i < 9; i++) {
+        pull = coocooPull(false, GuildID);
+        pull10 = pull10 + pull + " ";
     }
+    pull = coocooPull(true, GuildID);
+    pull10 = pull10 + pull;
     return pull10;
 };
 
@@ -84,7 +79,7 @@ bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix)) && (msg.content.startsWith(config.prefix + config.ReservedAllowedCommands) !== true)) {
+    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true)) {
         msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
         return;
     }
@@ -102,12 +97,17 @@ bot.on("message", msg => {
     } else if (msg.content.startsWith(config.prefix + "tadaima")) {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
+    } else if (msg.content.startsWith(config.prefix + "moe")) {
+        document.getElementById("y".src = "/Users/Chang-Syuan/fwtproject/BantAbusedMe/moe.jpg");
+        msg.channel.sendMessage();
+
     } else if (msg.content.startsWith("!pull")) { // Single pull
         pull = coocooPull(false);
         msg.channel.sendMessage(pull);
 
     } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
-        pull10 = coocooPull10(false);
+        var GuildID = msg.guild.id;
+        pull10 = coocooPull10(GuildID);
         msg.channel.sendMessage(pull10);
 
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
