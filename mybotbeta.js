@@ -20,7 +20,7 @@ function coocooPull(isLast, GuildID) {
         var srate = 0.045;
     }
     if (GuildID == config.FWTDiscord) {
-        if (number < junkrate) pull = "<:junk:271301591682908162>";
+        if (number < junkrate) pull = "<:junk:271555917307183105>";
         else if (junkrate <= number && number < junkrate + platrate) pull = "<:platinum:271302393713524738>";
         else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "<:A_set:271299731517341697>";
         else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "<:S_set:271299731999686656>";
