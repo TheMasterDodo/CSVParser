@@ -27,7 +27,7 @@ function coocooPull(isLast) {
     return pull;
 };
 
-function coocooPull10(GuildID) {
+function coocooPull10() {
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
@@ -66,11 +66,19 @@ function findSet(alias) {
     return dataString;
 };
 
+function PullOrNot() {
+    var number = Math.random();
+    var YesNo;
+    if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
+    else YesNo = config.FilePath + "/Images/Don't Pull.png";
+    return YesNo;
+};
+
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true)) {
+    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true) && (msg.content.startsWith(config.prefix + "hero") !== true)) {
         msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
         return;
     }
@@ -89,7 +97,8 @@ bot.on("message", msg => {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
     } else if (msg.content.startsWith("!pull")) { // Single pull
-        msg.channel.sendMessage(findEmojiFromGuildByName(msg.guild, coocooPull()));
+        const ShouldIPull = PullOrNot();
+        msg.channel.sendFile(ShouldIPull);
 
     } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
         const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
@@ -107,6 +116,7 @@ bot.on("message", msg => {
 });
 bot.on("ready", () => {
     console.log("I am ready!");
+    bot.user.setGame("with SS drop rates");
 });
 bot.on("error", e => { console.error(e); });
 bot.login(config.token);
