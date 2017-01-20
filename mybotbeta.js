@@ -1,8 +1,19 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Shared/config.json");
-const setTable = require(config.FilePath + "/FWTSetData.json");
+var setTable = require(config.FilePath + "/FWTSetData.json");
 const aliasList = require(config.FilePath + "/FWTSetAliases.json");
+const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
+for (let i = 0, len = setTable.length; i < len; i++) {
+    let j = rainbowRotation.length-1;
+    while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
+        let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
+        if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
+            setTable[i].appendChild("Last Time in the Rotation":rainbowRotation[j]["Week"]);
+        }
+        j--;
+    }
+}
 
 
 function coocooPull(isLast) {
