@@ -4,6 +4,7 @@ const config = require("/Users/Shared/config.json");
 var setTable = require(config.FilePath + "/FWTSetData.json");
 const aliasList = require(config.FilePath + "/FWTSetAliases.json");
 const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
+
 for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i++) {
     while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
@@ -14,7 +15,6 @@ for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i+
     }
     j = rainbowRotation.length-1;
 }
-
 
 function coocooPull(isLast) {
     var number = Math.random();
@@ -123,6 +123,9 @@ bot.on("message", msg => {
         var setInfo = findSet(setName.toLowerCase());
         if (setInfo != "nosuchset") msg.channel.sendMessage(setInfo);
         else msg.channel.sendMessage("Unknown Set!");
+
+    } else if (msg.content.startsWith(config.prefix + "moe")) {
+        msg.channel.sendFile(config.FilePath + "/Images/moe.jpg");
     }
 });
 bot.on("ready", () => {
