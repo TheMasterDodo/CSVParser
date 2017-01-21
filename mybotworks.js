@@ -1,9 +1,20 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Shared/config.json");
-const setTable = require(config.FilePath + "/FWTSetData.json");
+var setTable = require(config.FilePath + "/FWTSetData.json");
 const aliasList = require(config.FilePath + "/FWTSetAliases.json");
+const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
 
+for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i++) {
+    while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
+        let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
+        if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
+            setTable[i]["Last Time in the Rotation"] = rainbowRotation[j]["Week"];
+        }
+        j--;
+    }
+    j = rainbowRotation.length-1;
+}
 
 function coocooPull(isLast) {
     var number = Math.random();
@@ -27,7 +38,7 @@ function coocooPull(isLast) {
     return pull;
 };
 
-function coocooPull10(GuildID) {
+function coocooPull10() {
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
@@ -66,11 +77,19 @@ function findSet(alias) {
     return dataString;
 };
 
+function PullOrNot() {
+    var number = Math.random();
+    var YesNo;
+    if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
+    else YesNo = config.FilePath + "/Images/Don't Pull.png";
+    return YesNo;
+};
+
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true)) {
+    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true) && (msg.content.startsWith(config.prefix + "hero") !== true)) {
         msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
         return;
     }
@@ -89,7 +108,8 @@ bot.on("message", msg => {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
     } else if (msg.content.startsWith("!pull")) { // Single pull
-        msg.channel.sendMessage(findEmojiFromGuildByName(msg.guild, coocooPull()));
+        const ShouldIPull = PullOrNot();
+        msg.channel.sendFile(ShouldIPull);
 
     } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
         const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
@@ -103,10 +123,14 @@ bot.on("message", msg => {
         var setInfo = findSet(setName.toLowerCase());
         if (setInfo != "nosuchset") msg.channel.sendMessage(setInfo);
         else msg.channel.sendMessage("Unknown Set!");
+
+    } else if (msg.content.startsWith(config.prefix + "moe")) {
+        msg.channel.sendFile(config.FilePath + "/Images/moe.jpg");
     }
 });
 bot.on("ready", () => {
     console.log("I am ready!");
+    bot.user.setGame("with SS drop rates");
 });
 bot.on("error", e => { console.error(e); });
 bot.login(config.token);
