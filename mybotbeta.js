@@ -4,8 +4,7 @@ const config = require("/Users/Shared/config.json");
 var setTable = require(config.FilePath + "/FWTSetData.json");
 const aliasList = require(config.FilePath + "/FWTSetAliases.json");
 const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
-for (let i = 0, len = setTable.length; i < len; i++) {
-    let j = rainbowRotation.length-1;
+for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i++) {
     while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
         if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
@@ -13,6 +12,7 @@ for (let i = 0, len = setTable.length; i < len; i++) {
         }
         j--;
     }
+    j = rainbowRotation.length-1;
 }
 
 
