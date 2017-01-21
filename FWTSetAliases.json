@@ -44,7 +44,7 @@
   },
   {
     "name": "Transform! Magic Girl!",
-    "aliases": ["transform! magic girl!", "magic girl"]
+    "aliases": ["transform! magic girl!", "magic girl", "magical girl"]
   },
   {
     "name": "Super Ranger: Yellow",
@@ -88,7 +88,7 @@
   },
   {
     "name": "Ketarh Apprentice",
-    "aliases": ["ketarh apprentice"]
+    "aliases": ["ketarh apprentice", "ketarh", "apprentice"]
   },
   {
     "name": "Witch's Tool",
@@ -112,7 +112,7 @@
   },
   {
     "name": "Taunting Busybody",
-    "aliases": ["taunting busybody", "clown"]
+    "aliases": ["taunting busybody", "clown", "tbb"]
   },
   {
     "name": "The Lab Demon",
@@ -168,7 +168,7 @@
   },
   {
     "name": "Dasomier Batte Suit (Mass Prod. Type)",
-    "aliases": ["dasomier batte suit (mass prod. type)", "walmart daso", "fake daso"]
+    "aliases": ["dasomier batte suit (mass prod. type)", "walmart daso", "fake daso", "mini daso"]
   },
   {
     "name": "Nephthys Adventurer",
@@ -232,7 +232,7 @@
   },
   {
     "name": "Dragon Incarnate",
-    "aliases": ["dragon incarnate", "celestial", "cel"]
+    "aliases": ["dragon incarnate", "celestial", "cel", "celes", "cel package"]
   },
   {
     "name": "Song of Death",
@@ -240,7 +240,7 @@
   },
   {
     "name": "Irresistible Power",
-    "aliases": ["irresistible power", "deimos"]
+    "aliases": ["irresistible power", "deimos", "deimos package"]
   },
   {
     "name": "Separation Anxiety",
@@ -388,11 +388,11 @@
   },
   {
     "name": "Devil Knight",
-    "aliases": ["devil knight", "dk"]
+    "aliases": ["devil knight", "dk", "devil"]
   },
   {
     "name": "Forgotten Hitter No. 4",
-    "aliases": ["forgotten hitter no. 4", "forgotten hitter", "forgotten batter", "batter", "fh"]
+    "aliases": ["forgotten hitter no. 4", "forgotten hitter", "forgotten batter", "batter", "fh", "fh4"]
   },
   {
     "name": "Defender of the Earth",
@@ -408,15 +408,15 @@
   },
   {
     "name": "Ghost Step",
-    "aliases": ["ghost step", "gs"]
+    "aliases": ["ghost step", "gs", "ghost"]
   },
   {
     "name": "Defeated Ruler",
-    "aliases": ["defeated ruler", "deimos library"]
+    "aliases": ["defeated ruler", "deimos library", "tyrant"]
   },
   {
     "name": "Dragon's Collection",
-    "aliases": ["dragon's collection", "dragon collection", "celestial library", "cel library"]
+    "aliases": ["dragon's collection", "dragon collection", "celestial library", "cel library", "dragon"]
   },
   {
     "name": "Winner's Proof",
@@ -472,11 +472,11 @@
   },
   {
     "name": "Ketarh's Secret",
-    "aliases": ["ketarh's secret", "ketarh secret"]
+    "aliases": ["ketarh's secret", "ketarh secret", "improved ketarh"]
   },
   {
     "name": "New Elian Kingdom Cavalry",
-    "aliases": ["new elian kingdom cavalry", "new elian kingdom", "new elian cavalry", "new elian"]
+    "aliases": ["new elian kingdom cavalry", "new elian kingdom", "new elian cavalry", "new elian", "nec"]
   },
   {
     "name": "Super Ranger: Black",
