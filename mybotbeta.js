@@ -6,14 +6,12 @@ const aliasList = require(config.FilePath + "/FWTSetAliases.json");
 const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
 
 for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i++) {
-    while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
+    for (let j = 0, weeks = rainbowRotation.length; j < weeks; j++) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
         if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
             setTable[i]["Last Time in the Rotation"] = rainbowRotation[j]["Week"];
         }
-        j--;
     }
-    j = rainbowRotation.length-1;
 }
 
 function coocooPull(isLast) {
