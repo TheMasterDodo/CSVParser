@@ -8,7 +8,8 @@ for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i+
     while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
         if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
-            setTable[i].appendChild("Last Time in the Rotation":rainbowRotation[j]["Week"]);
+            var prop = {"Last Time in the Rotation": rainbowRotation[j]["Week"]};
+            setTable[i].appendChild(prop);
         }
         j--;
     }
