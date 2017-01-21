@@ -18,7 +18,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Increase Defense by 700",
-    "3pc": "Increase attack by 370",
+    "3pc": "Increase Attack by 370",
     "Restrictions": "None"
   },
   {
@@ -50,8 +50,8 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Ring",
-    "2pc": "Decreases Critical damage Taken by 7%",
-    "3pc": "Increases attack by 317",
+    "2pc": "Decreases Critical Damage Taken by 7%",
+    "3pc": "Increases Attack by 317",
     "Restrictions": "None"
   },
   {
@@ -62,7 +62,7 @@
     "Armor": "Shield",
     "Accessory": "Ring",
     "2pc": "Increases Hit Rate by 600",
-    "3pc": "Increases Critical damage by 6%",
+    "3pc": "Increases Critical Damage by 6%",
     "Restrictions": "None"
   },
   {
@@ -73,7 +73,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Defense +600",
-    "3pc": "Decrease critical damage taken by 8%",
+    "3pc": "Decrease Critical Damage taken by 8%",
     "Restrictions": "None"
   },
   {
@@ -117,7 +117,7 @@
     "Armor": "Boots",
     "Accessory": "Brooch",
     "2pc": "Dodge +900",
-    "3pc": "Critical damage +16%",
+    "3pc": "Critical Damage +16%",
     "Restrictions": "Attack-type character only"
   },
   {
@@ -128,7 +128,7 @@
     "Armor": "Boots",
     "Accessory": "Necklace",
     "2pc": "Increase 250 Defense to all allies",
-    "3pc": "Increases attack damage by 1.5% to all allies",
+    "3pc": "Increases Attack Damage by 1.5% to all allies",
     "Restrictions": "None"
   },
   {
@@ -150,7 +150,7 @@
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Increase Defense by 1000",
-    "3pc": "Decrease the attack of all Attack-type enemies by 25%",
+    "3pc": "Decrease the Attack of all Attack-type enemies by 25%",
     "Restrictions": "None"
   },
   {
@@ -193,7 +193,7 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Necklace",
-    "2pc": "Increase Defence by 1000",
+    "2pc": "Increase Defense by 1000",
     "3pc": "Increase the final skill power by 820",
     "Restrictions": "Support-type character only"
   },
@@ -206,7 +206,7 @@
     "Accessory": "Brooch",
     "2pc": "Increase MP by 24",
     "3pc": "Recover MP by 8 every turn",
-    "Restrictions": "Area attack-type character only"
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "Witch's Tool",
@@ -217,7 +217,7 @@
     "Accessory": "Brooch",
     "2pc": "Recover MP by 8 every turn",
     "3pc": "Increase the final skill power by 950",
-    "Restrictions": "Area attack-type character only"
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "Rebel Army Supply",
@@ -282,7 +282,7 @@
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Increases Defense by 600",
-    "3pc": "Increases movement by 1",
+    "3pc": "Increases Movement by 1",
     "Restrictions": "Activated for 2 turns at the beginning of Combat"
   },
   {
@@ -292,7 +292,7 @@
     "Weapon": "Sword",
     "Armor": "Armor",
     "Accessory": "Ring",
-    "2pc": "Increases its wearer's attack by 30% for 4 turns",
+    "2pc": "Increases its wearer's Attack by 30% for 4 turns",
     "3pc": "Increases Movement by 1",
     "Restrictions": "None"
   },
@@ -315,7 +315,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Increase Hit Rate by 1000",
-    "3pc": "Increase Attack by 10%",
+    "3pc": "Increase Attack by 15%",
     "Restrictions": "Actuvated until the 2nd turn of combat"
   },
   {
@@ -325,19 +325,19 @@
     "Weapon": "Bow",
     "Armor": "Boots",
     "Accessory": "Brooch",
-    "2pc": "Increase defense by 700 (+850 if equipped by a balance-type hero)",
+    "2pc": "Increase Defense by 700 (+850 if equipped by a balance-type hero)",
     "3pc": "Increase HP by 2820 (+3507 if equipped by★★_ a balance-type hero)",
     "Restrictions": "None"
   },
   {
-    "Name": "Time for your Shot",
+    "Name": "Time for Your Shot!",
     "Tier": "★★",
     "Grade": "SS",
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Necklace",
-    "2pc": "Increase crit rate by 900",
-    "3pc": "Increase attack by 12%",
+    "2pc": "Increase Crit Rate by 900",
+    "3pc": "Increase Attack by 12%",
     "Restrictions": "None"
   },
   {
@@ -370,7 +370,7 @@
     "Armor": "Boots",
     "Accessory": "Necklace",
     "2pc": "Chance of being targeted by enemies +50% and Increases HP by 3510",
-    "3pc": "Increase Defense +800 and +400 per turn upon attacking enemies (Max +1600)",
+    "3pc": "Increase Defense +800 and +400 per turn upon Attacking enemies (Max +1600)",
     "Restrictions": "None"
   },
   {
@@ -391,8 +391,8 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Necklace",
-    "2pc": "Reflects 20% of all damage taken",
-    "3pc": "Increases attack damage by 10%",
+    "2pc": "Reflects 20% of all Damage taken",
+    "3pc": "Increases Attack Damage by 10%",
     "Restrictions": "Activates when owner has 1 or more buffs"
   },
   {
@@ -402,7 +402,7 @@
     "Weapon": "Mace",
     "Armor": "Shield",
     "Accessory": "Brooch",
-    "2pc": "Increases attack damage by 10%",
+    "2pc": "Increases Attack Damage by 10%",
     "3pc": "At the beginning of every turn, creates 1 potion randomly within 2 tiles from the owner and Increases Defense by 800",
     "Restrictions": "None"
   },
@@ -470,7 +470,7 @@
     "Accessory": "Brooch",
     "2pc": "Increase MP by 23",
     "3pc": "Increase the final skill power by 1780",
-    "Restrictions": "Area attack-type character only"
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "Frenzy Token",
@@ -534,7 +534,7 @@
     "Weapon": "Sword",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increases attack by 1344 and Crit Rate By 600",
+    "2pc": "Increases Attack by 1344 and Crit Rate By 600",
     "3pc": "Revives with 5% HP upon death for the first 2 turns (max once)",
     "Restrictions": "None"
   },
@@ -579,7 +579,7 @@
     "Armor": "Boots",
     "Accessory": "Ring",
     "2pc": "Increase dodge by 2000",
-    "3pc": "Increase attack by 12%",
+    "3pc": "Increase Attack by 12%",
     "Restrictions": "Dodge is above 30%"
   },
   {
@@ -590,7 +590,7 @@
     "Armor": "Armor",
     "Accessory": "Ring",
     "2pc": "Increase HP by 10%",
-    "3pc": "Increase attack by 2568",
+    "3pc": "Increase Attack by 2568",
     "Restrictions": "None"
   },
   {
@@ -602,7 +602,7 @@
     "Accessory": "Ring",
     "2pc": "Crit +250 (Max 1000)",
     "3pc": "Attack +400 (Max 1600)",
-    "Restrictions": "Activated each time the character is attacked"
+    "Restrictions": "Activated each time the character is Attacked"
   },
   {
     "Name": "Unbeatable Warlord",
@@ -634,7 +634,7 @@
     "Armor": "Armor",
     "Accessory": "Ring",
     "2pc": "Increases Crit Rate by 200 to all allies",
-    "3pc": "Boosts critical damage by 2% to all allies",
+    "3pc": "Boosts Critical Damage by 2% to all allies",
     "Restrictions": "None"
   },
   {
@@ -644,7 +644,7 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Necklace",
-    "2pc": "Increases counter damage by 50%",
+    "2pc": "Increases counter Damage by 50%",
     "3pc": "Increases counter rate by 8000",
     "Restrictions": "Activates when the owner's HP falls below 75%"
   },
@@ -656,7 +656,7 @@
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Restores 6% HP every turn and Increases HP by 6040",
-    "3pc": "Applies a buff to all allies within 2 tiles, increasing defense by 1000 and redirecting 50% of the damage onto the wearer",
+    "3pc": "Applies a buff to all allies within 2 tiles, increasing Defense by 1000 and redirecting 50% of the Damage onto the wearer",
     "Restrictions": "Defense-type character only,"
   },
   {
@@ -689,7 +689,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Increase Hit Rate by 220 every turn (Max 1110)",
-    "3pc": "Increase Attack by 782 every turn (Max 782)",
+    "3pc": "Increase Attack by 782 every turn (Max 3910)",
     "Restrictions": "Activates the Set effects at the beginning of combat"
   },
   {
@@ -712,7 +712,7 @@
     "Accessory": "Ring",
     "2pc": "Increase MP by 28",
     "3pc": "Increase the final skill power by 2610",
-    "Restrictions": "Area attack-type character only"
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "Beast Rain Project Prototype",
@@ -820,8 +820,8 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increase attack by 2918",
-    "3pc": "Decrease incoming damage from skills that target at least 2 units by 25%",
+    "2pc": "Increase Attack by 2918",
+    "3pc": "Decrease incoming Damage from skills that target at least 2 units by 25%",
     "Restrictions": "None"
   },
   {
@@ -831,8 +831,8 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increase defense by 1500",
-    "3pc": "Decrease incoming damage by 10%",
+    "2pc": "Increase Defense by 1500",
+    "3pc": "Decrease incoming Damage by 10%",
     "Restrictions": "Dodge is above 40%"
   },
   {
@@ -842,8 +842,8 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Ring",
-    "2pc": "Increase crit rate by 1000 (+300 if equipped by an attack-type hero)",
-    "3pc": "Increase attack by 2818 (+1082 if equipped by an attack-type hero)",
+    "2pc": "Increase Crit Rate by 1000 (+300 if equipped by an Attack-type hero)",
+    "3pc": "Increase Attack by 2818 (+1082 if equipped by an Attack-type hero)",
     "Restrictions": "None"
   },
   {
@@ -897,8 +897,8 @@
     "Weapon": "Bow",
     "Armor": "Boots",
     "Accessory": "Brooch",
-    "2pc": "Increases attack damage by 3%. The value can be up to 12%",
-    "3pc": "Increases critical damage by 3%. The value can be up to 12%",
+    "2pc": "Increases Attack Damage by 3%. The value can be up to 12%",
+    "3pc": "Increases Critical Damage by 3%. The value can be up to 12%",
     "Restrictions": "Activates on owner's skill use on an enemy"
   },
   {
@@ -909,7 +909,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Increases hit rate by 1200",
-    "3pc": "Increases critical damage by 24%",
+    "3pc": "Increases Critical Damage by 24%",
     "Restrictions": "None"
   },
   {
@@ -965,7 +965,7 @@
     "Accessory": "Brooch",
     "2pc": "Recover MP by 8 every turn",
     "3pc": "Increase the final skill power by 3820",
-    "Restrictions": "Area attack-type character only"
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "New Elian Kingdom Cavalry",
@@ -1051,8 +1051,8 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increase Critical damage by 15%",
-    "3pc": "Increases attack every turn by 780 (Up to 7020)",
+    "2pc": "Increase Critical Damage by 15%",
+    "3pc": "Increases Attack every turn by 780 (Up to 7020)",
     "Restrictions": "None"
   },
   {
@@ -1096,7 +1096,7 @@
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Increase HP by 11680",
-    "3pc": "Increase all allies★★_ crit rate by 800",
+    "3pc": "Increase all allies★★_ Crit Rate by 800",
     "Restrictions": "Activated when there are 3 or more allies alive"
   },
   {
@@ -1106,8 +1106,8 @@
     "Weapon": "Sword",
     "Armor": "Shield",
     "Accessory": "Brooch",
-    "2pc": "Increase defense by 1200",
-    "3pc": "Increase HP by 5831/attack by 1494",
+    "2pc": "Increase Defense by 1200",
+    "3pc": "Increase HP by 5831/Attack by 1494",
     "Restrictions": "None"
   },
   {
@@ -1118,7 +1118,7 @@
     "Armor": "Armor",
     "Accessory": "Necklace",
     "2pc": "Increase HP by 21480",
-    "3pc": "Increase attack by 18%",
+    "3pc": "Increase Attack by 18%",
     "Restrictions": "None"
   },
   {
@@ -1128,7 +1128,7 @@
     "Weapon": "Sword",
     "Armor": "Boots",
     "Accessory": "Necklace",
-    "2pc": "Critical damage +5% (Max 30%)",
+    "2pc": "Critical Damage +5% (Max 30%)",
     "3pc": "Recovers 5% of HP",
     "Restrictions": "Activates on enemy kill"
   },
@@ -1152,7 +1152,7 @@
     "Accessory": "Necklace",
     "2pc": "Attack +5992",
     "3pc": "Skill MP cost -20%",
-    "Restrictions": "Area attack-type character only"
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "Mantra of Awakening",
@@ -1183,9 +1183,9 @@
     "Weapon": "Mace",
     "Armor": "Shield",
     "Accessory": "Necklace",
-    "2pc": "For every enemy within attack range, increase attack damage by 2%",
-    "3pc": "For every enemy within attack range, increase attack damage by 4%",
-    "Restrictions": "Area-attack type character only"
+    "2pc": "For every enemy within Attack range, increase Attack Damage by 2%",
+    "3pc": "For every enemy within Attack range, increase Attack Damage by 4%",
+    "Restrictions": "Area-Attack type character only"
   },
   {
     "Name": "Omniscient and Omnipotent",
@@ -1194,7 +1194,7 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increases attack damage by 15%",
+    "2pc": "Increases Attack Damage by 15%",
     "3pc": "At beginning of every turn, removes 2 debuffs on self",
     "Restrictions": "None"
   },
@@ -1206,8 +1206,8 @@
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Recover MP by 7 every turn",
-    "3pc": "Increase attack by 2379",
-    "Restrictions": "Area attack-type character only"
+    "3pc": "Increase Attack by 2379",
+    "Restrictions": "Area Attack-type character only"
   },
   {
     "Name": "Hellish Flame's Guide",
@@ -1316,7 +1316,7 @@
     "Armor": "Armor",
     "Accessory": "Ring",
     "2pc": "Crit Rate +1100",
-    "3pc": "Will revive with 30% of HP if struck with a deathly attack",
+    "3pc": "Will revive with 30% of HP if struck with a deathly Attack",
     "Restrictions": "Activated for 2 turns at the beginning of combat"
   },
   {
@@ -1349,12 +1349,12 @@
     "Armor": "Shield",
     "Accessory": "Ring",
     "2pc": "Dodge +1200",
-    "3pc": "Decreases critical damage from enemy attacks by 20%",
+    "3pc": "Decreases Critical Damage from enemy Attacks by 20%",
     "Restrictions": "Activates when the wearer's HP is below 75%"
   },
   {
     "Name": "Undaunted Fighter",
-    "Tier": "",
+    "Tier": "★★★★",
     "Grade": "S",
     "Weapon": "Mace",
     "Armor": "Shield",
@@ -1398,23 +1398,23 @@
   },
   {
     "Name": "Defeated Ruler",
-    "Tier": "★★★",
+    "Tier": "★★★★",
     "Grade": "S",
     "Weapon": "Sword",
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Increases Critical by 1000",
-    "3pc": "Increase HP by7800",
+    "3pc": "Increase HP by 7800",
     "Restrictions": "Exclusive to Deimos (Limited Library in the Sky Hero)"
   },
   {
     "Name": "Dragon's Collection",
-    "Tier": "★★★",
+    "Tier": "★★★★",
     "Grade": "S",
     "Weapon": "Mace",
     "Armor": "Shield",
     "Accessory": "Necklace",
-    "2pc": "Increases Defense by 1100",
+    "2pc": "Increases Defense by 1200",
     "3pc": "Increases Movement by 1",
     "Restrictions": "Exclusive to Celestial (Library in the Sky Hero)"
   },
@@ -1470,7 +1470,7 @@
     "Armor": "Armor",
     "Accessory": "Ring",
     "2pc": "Increases Attack by 2318",
-    "3pc": "Increases HP by 9710. If 3 or more status effects are on the character, increase movement by 1",
+    "3pc": "Increases HP by 9710. If 3 or more status effects are on the character, increase Movement by 1",
     "Restrictions": "Exclusive to Reina (Limited Lost Island Hero)"
   },
   {
@@ -1481,7 +1481,7 @@
     "Armor": "Armor",
     "Accessory": "Ring",
     "2pc": "Decreases Attack of enemies within 3 tiles of the wearer by 1000.",
-    "3pc": "Increases Attack of the wearer by 40% for 3 turns and decreases incoming damage by 15% for 2 turns",
+    "3pc": "Increases Attack of the wearer by 40% for 3 turns and decreases incoming Damage by 15% for 2 turns",
     "Restrictions": "Exclusive to Raizel (Noblesse Hero)"
   },
   {
@@ -1491,8 +1491,8 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Necklace",
-    "2pc": "Increase crit rate by 180 every time the wearer loses 10% of his HP (max 1620)",
-    "3pc": "Increase defense by 1500 at the beginning of wearer’sodd-number turn and attack by 2608 at the beginning of wearer’s even-number turn",
+    "2pc": "Increase Crit Rate by 180 every time the wearer loses 10% of his HP (max 1620)",
+    "3pc": "Increase Defense by 1500 at the beginning of wearer’sodd-number turn and Attack by 2608 at the beginning of wearer’s even-number turn",
     "Restrictions": "Exclusive to Krut (Limited Lost Island Hero)"
   },
   {
@@ -1503,7 +1503,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Restores 5% HP every turn",
-    "3pc": "Increases attack of the wearer by 30% for 4 turns and decreases incoming damage of the wearer by 10% for 3 turns.",
+    "3pc": "Increases Attack of the wearer by 30% for 4 turns and decreases incoming Damage of the wearer by 10% for 3 turns.",
     "Restrictions": "Exclusive to Celestial (Library in the Sky Hero)"
   },
   {
@@ -1513,8 +1513,8 @@
     "Weapon": "Mace",
     "Armor": "Armor",
     "Accessory": "Ring",
-    "2pc": "Incrases crit rate by 230 every time the wearer loses 10% of her HP (Max 2070)",
-    "3pc": "Increases attack of the wearer by 30% for 4 turns, and their Resistance by 50% for 3 turns.",
+    "2pc": "Incrases Crit Rate by 230 every time the wearer loses 10% of her HP (Max 2070)",
+    "3pc": "Increases Attack of the wearer by 30% for 4 turns, and their Resistance by 50% for 3 turns.",
     "Restrictions": "Exclusive to Banshee (Limited Lost Island Hero)"
   },
   {
@@ -1547,7 +1547,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Recovers 6% HP Every Turn",
-    "3pc": "Increases the Wearer's attack by 40% for 3 turns and decreases the incoming damage of the wearer by 15% for 2 turns.",
+    "3pc": "Increases the Wearer's Attack by 40% for 3 turns and decreases the incoming Damage of the wearer by 15% for 2 turns.",
     "Restrictions": "Exclusive to Lucas (Limited Lost Island Hero)"
   },
   {
@@ -1558,7 +1558,7 @@
     "Armor": "Armor",
     "Accessory": "Ring",
     "2pc": "Restores 10 MP every turn",
-    "3pc": "Increase critical rate by 200 every time an enemy is attacked. (max 800)",
+    "3pc": "Increase Critical rate by 200 every time an enemy is Attacked. (max 800)",
     "Restrictions": "Exclusive to Ragna (BlazBlue Hero)"
   },
   {
@@ -1569,7 +1569,7 @@
     "Armor": "Shield",
     "Accessory": "Necklace",
     "2pc": "Increase Critical Rate by 1400",
-    "3pc": "Increases attack of the wearer by 30% for 4 turns and decreases incoming damage of the wearer by 10%.",
+    "3pc": "Increases Attack of the wearer by 30% for 4 turns and decreases incoming Damage of the wearer by 10%.",
     "Restrictions": "Exclusive to Jin Kisaragi (BlazBlue Hero)"
   },
   {
@@ -1602,7 +1602,7 @@
     "Armor": "Armor",
     "Accessory": "Brooch",
     "2pc": "Increases Allies' HP by 2030 in the dungeon.",
-    "3pc": "Increases the Wearer's attack by 20% for 4 turns",
+    "3pc": "Increases the Wearer's Attack by 20% for 4 turns",
     "Restrictions": "Exclusive to Evan (Maplestory Hero)"
   },
   {
@@ -1612,8 +1612,8 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "If the wearer is under 2 or more buffs, increase critical damage by 15%",
-    "3pc": "Increases attack by 30% for 4 turns.",
+    "2pc": "If the wearer is under 2 or more buffs, increase Critical Damage by 15%",
+    "3pc": "Increases Attack by 30% for 4 turns.",
     "Restrictions": "Exclusive to Phantom (Maplestory Hero)"
   },
   {
@@ -1623,8 +1623,8 @@
     "Weapon": "Bow",
     "Armor": "Armor",
     "Accessory": "Brooch",
-    "2pc": "Increases attack by 1344 and Hit rate by 600.",
-    "3pc": "Increases attack by 30% for 4 turns.",
+    "2pc": "Increases Attack by 1344 and Hit rate by 600.",
+    "3pc": "Increases Attack by 30% for 4 turns.",
     "Restrictions": "Exclusive to Mercedes (Maplestory Hero)"
   }
 ]
