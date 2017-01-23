@@ -34,22 +34,22 @@ function coocooPull(isLast) {
     else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "S_set";
     else pull = "SS_set";
     return pull;
-};
+}
 
 function coocooPull10() {
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
-};
+}
 
 function findEmojiFromGuildByName(guild, emoji_name) {
     const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
     return emoji ? emoji.toString() : emoji_name;
-};
+}
 
 function nameByAlias(alias) {
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
-      	for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
+        for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
           	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
         }
     }
@@ -73,7 +73,7 @@ function findSet(alias) {
     }
 
     return dataString;
-};
+}
 
 function PullOrNot() {
     var number = Math.random();
@@ -81,7 +81,7 @@ function PullOrNot() {
     if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
     else YesNo = config.FilePath + "/Images/Don't Pull.png";
     return YesNo;
-};
+}
 
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
@@ -105,6 +105,9 @@ bot.on("message", msg => {
     } else if (msg.content.startsWith(config.prefix + "tadaima")) {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
+    } else if (msg.content.startsWith(config.prefix + "tuturu")) { // Tuturu
+        msg.channel.sendMessage("tuturu"); 
+    
     } else if (msg.content.startsWith("!pull")) { // Single pull
         const ShouldIPull = PullOrNot();
         msg.channel.sendFile(ShouldIPull);
@@ -128,7 +131,7 @@ bot.on("message", msg => {
 });
 bot.on("ready", () => {
     console.log("I am ready!");
-    bot.user.setGame("with SS drop rates");
+    bot.user.setGame("with TOD Hell Sets");
 });
 bot.on("error", e => { console.error(e); });
 bot.login(config.token);
