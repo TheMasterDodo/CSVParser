@@ -127,6 +127,11 @@ bot.on("message", msg => {
 
     } else if (msg.content.startsWith(config.prefix + "moe")) {
         msg.channel.sendFile(config.FilePath + "/Images/moe.jpg");
+
+    } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
+        const member = msg.guild.member(bot.user);
+        member.setNickname("A Certain Magical Bot");
+        msg.channel.sendMessage("My name has been set!");
     }
 });
 bot.on("ready", () => {
