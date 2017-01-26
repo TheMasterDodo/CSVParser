@@ -83,6 +83,23 @@ function PullOrNot() {
     return YesNo;
 }
 
+function CurrentRainbow() {
+    var rainbowWeek = "5th week of January";
+
+    for (var i = 0, len = rainbowRotation.length; i < len; i++) {
+        if (rainbowRotation[i]["Week"] == rainbowWeek) var rainbowData = rainbowRotation[i];
+    }
+
+    var dataString = "";
+    for (var property in rainbowData) {
+        if (rainbowData.hasOwnProperty(property)) {
+            dataString = dataString + property + ": " + rainbowData[property] + "\n";
+        }
+    }
+    return dataString;
+}
+
+
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
@@ -108,7 +125,7 @@ bot.on("message", msg => {
     } else if (msg.content.startsWith(config.prefix + "tuturu")) { // Tuturu
         msg.channel.sendMessage("tuturu"); 
     
-    } else if (msg.content.startsWith("!pull")) { // Single pull
+    } else if (msg.content.startsWith(config.prefix + "pull")) { // Single pull
         const ShouldIPull = PullOrNot();
         msg.channel.sendFile(ShouldIPull);
 
@@ -126,12 +143,16 @@ bot.on("message", msg => {
         else msg.channel.sendMessage("Unknown Set!");
 
     } else if (msg.content.startsWith(config.prefix + "moe")) {
-        msg.channel.sendFile(config.FilePath + "/Images/moe.jpg");
+        msg.channel.sendFile(config.FilePath + "/Images/moe.PNG");
 
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
         const member = msg.guild.member(bot.user);
         member.setNickname("A Certain Magical Bot");
         msg.channel.sendMessage("My name has been set!");
+
+    } else if (msg.content.startsWith(config.prefix + "rainbow")) {
+        const currentSets = CurrentRainbow();
+        msg.channel.sendMessage(currentSets);
     }
 });
 bot.on("ready", () => {
