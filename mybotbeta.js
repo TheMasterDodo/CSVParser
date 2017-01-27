@@ -5,7 +5,7 @@ var setTable = require(config.FilePath + "/FWTSetData.json");
 const aliasList = require(config.FilePath + "/FWTSetAliases.json");
 const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
 
-for (let i = 0, len = setTable.length; i < len; i++) {
+for (let i = 0, len = setTable.length; i < len; i++) { // Adds the last time in rotation data for sets
     for (let j = 0, weeks = rainbowRotation.length; j < weeks; j++) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
         if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
@@ -14,7 +14,7 @@ for (let i = 0, len = setTable.length; i < len; i++) {
     }
 }
 
-function coocooPull(isLast) {
+function coocooPull(isLast) { // Base function for CooCoo pulling
     var number = Math.random();
     var pull;
     if (isLast) {
@@ -36,18 +36,18 @@ function coocooPull(isLast) {
     return pull;
 }
 
-function coocooPull10() {
+function coocooPull10() { // Pulls 10 times
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
 }
 
-function findEmojiFromGuildByName(guild, emoji_name) {
+function findEmojiFromGuildByName(guild, emoji_name) { // Finds the emojis for CooCoo pull
     const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
     return emoji ? emoji.toString() : emoji_name;
 }
 
-function nameByAlias(alias) {
+function nameByAlias(alias) { // Function for converting set aliases into set names
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
         for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
           	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
@@ -56,7 +56,7 @@ function nameByAlias(alias) {
   	return "nosuchalias";
 }
 
-function findSet(alias) {
+function findSet(alias) { // Function for finding set data
   	var name = nameByAlias(alias);
   	if (name == "nosuchalias") return "nosuchset";
     var setData = setTable[0];
@@ -75,7 +75,7 @@ function findSet(alias) {
     return dataString;
 }
 
-function PullOrNot() {
+function PullOrNot() { // Function for deciding whether to pull
     var number = Math.random();
     var YesNo;
     if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
@@ -83,13 +83,12 @@ function PullOrNot() {
     return YesNo;
 }
 
-function SetsOfTheWeek(WeekRequested) {
+function SetsOfTheWeek(WeekRequested) { // Function for finding the currently featured sets
     var RotationLength = rainbowRotation.length;
-    var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
     var dataString = "";
-
+    var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
     for (var property in rainbowData) {
-        if (rainbowData.hasOwnProperty(property)) {
+        if (rainbowData.hasOwnProperty(property)) {                
             dataString = dataString + property + ": " + rainbowData[property] + "\n";
         }
     }
