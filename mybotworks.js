@@ -5,15 +5,13 @@ var setTable = require(config.FilePath + "/FWTSetData.json");
 const aliasList = require(config.FilePath + "/FWTSetAliases.json");
 const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
 
-for (let i = 0, j = rainbowRotation.length-1, len = setTable.length; i < len; i++) {
-    while (j >= 0 && !setTable[i].hasOwnProperty("Last Time in the Rotation")) {
+for (let i = 0, len = setTable.length; i < len; i++) {
+    for (let j = 0, weeks = rainbowRotation.length; j < weeks; j++) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
         if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
             setTable[i]["Last Time in the Rotation"] = rainbowRotation[j]["Week"];
         }
-        j--;
     }
-    j = rainbowRotation.length-1;
 }
 
 function coocooPull(isLast) {
@@ -36,22 +34,22 @@ function coocooPull(isLast) {
     else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "S_set";
     else pull = "SS_set";
     return pull;
-};
+}
 
 function coocooPull10() {
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
-};
+}
 
 function findEmojiFromGuildByName(guild, emoji_name) {
     const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
     return emoji ? emoji.toString() : emoji_name;
-};
+}
 
 function nameByAlias(alias) {
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
-      	for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
+        for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
           	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
         }
     }
@@ -75,7 +73,7 @@ function findSet(alias) {
     }
 
     return dataString;
-};
+}
 
 function PullOrNot() {
     var number = Math.random();
@@ -83,7 +81,20 @@ function PullOrNot() {
     if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
     else YesNo = config.FilePath + "/Images/Don't Pull.png";
     return YesNo;
-};
+}
+
+function SetsOfTheWeek(WeekRequested) {
+    var RotationLength = rainbowRotation.length;
+    var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
+    var dataString = "";
+
+    for (var property in rainbowData) {
+        if (rainbowData.hasOwnProperty(property)) {
+            dataString = dataString + property + ": " + rainbowData[property] + "\n";
+        }
+    }
+    return dataString;
+}
 
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
@@ -107,7 +118,10 @@ bot.on("message", msg => {
     } else if (msg.content.startsWith(config.prefix + "tadaima")) {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
-    } else if (msg.content.startsWith("!pull")) { // Single pull
+    } else if (msg.content.startsWith(config.prefix + "tuturu")) { // Tuturu
+        msg.channel.sendMessage("tuturu"); 
+    
+    } else if (msg.content.startsWith(config.prefix + "pull")) { // Single pull
         const ShouldIPull = PullOrNot();
         msg.channel.sendFile(ShouldIPull);
 
@@ -125,12 +139,28 @@ bot.on("message", msg => {
         else msg.channel.sendMessage("Unknown Set!");
 
     } else if (msg.content.startsWith(config.prefix + "moe")) {
-        msg.channel.sendFile(config.FilePath + "/Images/moe.jpg");
+        msg.channel.sendFile(config.FilePath + "/Images/moe.PNG");
+
+    } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
+        const member = msg.guild.member(bot.user);
+        member.setNickname("A Certain Magical Bot");
+        msg.channel.sendMessage("My name has been set!");
+
+    } else if (msg.content.startsWith(config.prefix + "rainbow")) {
+        var message = msg.content;
+        var messageLength = message.length;
+        var weekLocation = message.indexOf(" ",0);
+        if (weekLocation != -1) {
+            var WeekRequested = message.slice(weekLocation + 1, messageLength);
+        } else WeekRequested = 0;
+
+        const currentSets = SetsOfTheWeek(WeekRequested);
+        msg.channel.sendMessage(currentSets);
     }
 });
 bot.on("ready", () => {
     console.log("I am ready!");
-    bot.user.setGame("with SS drop rates");
+    bot.user.setGame("with TOD Hell Sets");
 });
 bot.on("error", e => { console.error(e); });
 bot.login(config.token);
