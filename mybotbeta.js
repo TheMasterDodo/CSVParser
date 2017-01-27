@@ -83,22 +83,6 @@ function PullOrNot() {
     return YesNo;
 }
 
-function CurrentRainbow() {
-    var rainbowWeek = "5th week of January";
-
-    for (var i = 0, len = rainbowRotation.length; i < len; i++) {
-        if (rainbowRotation[i]["Week"] == rainbowWeek) var rainbowData = rainbowRotation[i];
-    }
-
-    var dataString = "";
-    for (var property in rainbowData) {
-        if (rainbowData.hasOwnProperty(property)) {
-            dataString = dataString + property + ": " + rainbowData[property] + "\n";
-        }
-    }
-    return dataString;
-}
-
 function SetsOfTheWeek(WeekRequested) {
     var RotationLength = rainbowRotation.length;
     var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
