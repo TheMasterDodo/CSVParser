@@ -99,6 +99,18 @@ function CurrentRainbow() {
     return dataString;
 }
 
+function SetsOfTheWeek(WeekRequested) {
+    var RotationLength = rainbowRotation.length;
+    var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
+    var dataString = "";
+
+    for (var property in rainbowData) {
+        if (rainbowData.hasOwnProperty(property)) {
+            dataString = dataString + property + ": " + rainbowData[property] + "\n";
+        }
+    }
+    return dataString;
+}
 
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
@@ -151,7 +163,14 @@ bot.on("message", msg => {
         msg.channel.sendMessage("My name has been set!");
 
     } else if (msg.content.startsWith(config.prefix + "rainbow")) {
-        const currentSets = CurrentRainbow();
+        var message = msg.content;
+        var messageLength = message.length;
+        var weekLocation = message.indexOf(" ",0);
+        if (weekLocation != -1) {
+            var WeekRequested = message.slice(weekLocation + 1, messageLength);
+        } else WeekRequested = 0;
+
+        const currentSets = SetsOfTheWeek(WeekRequested);
         msg.channel.sendMessage(currentSets);
     }
 });
