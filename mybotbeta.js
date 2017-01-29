@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Shared/config.json");
-var setTable = require(config.FilePath + "/FWTSetData.json");
-const aliasList = require(config.FilePath + "/FWTSetAliases.json");
-const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
+const setTable = require(config.DataFilePath + "/FWTSetData.json");
+const aliasList = require(config.DataFilePath + "/FWTSetAliases.json");
+const rainbowRotation = require(config.DataFilePath + "/FWTSetRotation.json");
+const HeroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
 
-for (let i = 0, len = setTable.length; i < len; i++) { // Adds the last time in rotation data for sets
+for (let i = 0, len = setTable.length; i < len; i++) {
     for (let j = 0, weeks = rainbowRotation.length; j < weeks; j++) {
         let grade = setTable[i]["Tier"].length.toString() + setTable[i]["Grade"];
         if (rainbowRotation[j][grade] == setTable[i]["Name"]) {
@@ -14,7 +15,7 @@ for (let i = 0, len = setTable.length; i < len; i++) { // Adds the last time in 
     }
 }
 
-function coocooPull(isLast) { // Base function for CooCoo pulling
+function coocooPull(isLast) {
     var number = Math.random();
     var pull;
     if (isLast) {
@@ -36,28 +37,28 @@ function coocooPull(isLast) { // Base function for CooCoo pulling
     return pull;
 }
 
-function coocooPull10() { // Pulls 10 times
+function coocooPull10() {
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
 }
 
-function findEmojiFromGuildByName(guild, emoji_name) { // Finds the emojis for CooCoo pull
+function findEmojiFromGuildByName(guild, emoji_name) {
     const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
     return emoji ? emoji.toString() : emoji_name;
 }
 
-function nameByAlias(alias) { // Function for converting set aliases into set names
+function SetNameByAlias(SetAlias) {
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
         for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
-          	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
+          	if (aliasList[i]["aliases"][j] == SetAlias) return aliasList[i]["name"];
         }
     }
   	return "nosuchalias";
 }
 
-function findSet(alias) { // Function for finding set data
-  	var name = nameByAlias(alias);
+function findSet(SetAlias) {
+  	var name = SetNameByAlias(SetAlias);
   	if (name == "nosuchalias") return "nosuchset";
     var setData = setTable[0];
 
@@ -75,21 +76,36 @@ function findSet(alias) { // Function for finding set data
     return dataString;
 }
 
-function PullOrNot() { // Function for deciding whether to pull
+function PullOrNot() {
     var number = Math.random();
     var YesNo;
-    if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
-    else YesNo = config.FilePath + "/Images/Don't Pull.png";
+    if (number <= 0.5) YesNo =  config.DataFilePath + "/Images/Pull.png";
+    else YesNo = config.DataFilePath + "/Images/Don't Pull.png";
     return YesNo;
 }
 
-function SetsOfTheWeek(WeekRequested) { // Function for finding the currently featured sets
+function SetsOfTheWeek(WeekRequested) {
     var RotationLength = rainbowRotation.length;
-    var dataString = "";
     var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
+    var dataString = "";
+
     for (var property in rainbowData) {
-        if (rainbowData.hasOwnProperty(property)) {                
+        if (rainbowData.hasOwnProperty(property)) {
             dataString = dataString + property + ": " + rainbowData[property] + "\n";
+        }
+    }
+    return dataString;
+}
+
+function HeroData(HeroRequested) {
+
+    var HeroDataLength = HeroDataTable.length;
+    var HeroData = HeroDataTable[0];
+    var dataString = "";
+
+    for (var property in HeroData) {
+        if (HeroData.hasOwnProperty(property)) {
+            dataString = dataString + property + ": " + HeroData[property] + "\n";
         }
     }
     return dataString;
@@ -118,7 +134,7 @@ bot.on("message", msg => {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
     } else if (msg.content.startsWith(config.prefix + "tuturu")) { // Tuturu
-        msg.channel.sendMessage("tuturu"); 
+        msg.channel.sendFile(config.FilePath + "/Images/Tuturu.png"); 
     
     } else if (msg.content.startsWith(config.prefix + "pull")) { // Single pull
         const ShouldIPull = PullOrNot();
@@ -152,7 +168,6 @@ bot.on("message", msg => {
         if (weekLocation != -1) {
             var WeekRequested = message.slice(weekLocation + 1, messageLength);
         } else WeekRequested = 0;
-
         const currentSets = SetsOfTheWeek(WeekRequested);
         msg.channel.sendMessage(currentSets);
     }
