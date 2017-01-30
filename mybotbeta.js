@@ -60,8 +60,8 @@ function findEmojiFromGuildByName(guild, emoji_name) {
 }
 
 function findNameByAlias(alias, isSet) {
-    if (isSet) const aliasList = aliasListSets;
-    else const aliasList = aliasListHeroes;
+    if (isSet) var aliasList = aliasListSets;
+    else var aliasList = aliasListHeroes;
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
         for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
           	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
