@@ -84,8 +84,8 @@ function findSet(setAlias) {
 function PullOrNot() {
     var number = Math.random();
     var YesNo;
-    if (number <= 0.5) YesNo =  config.DataFilePath + "/Images/Pull.png";
-    else YesNo = config.DataFilePath + "/Images/Don't Pull.png";
+    if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
+    else YesNo = config.FilePath + "/Images/Don't Pull.png";
     return YesNo;
 }
 
