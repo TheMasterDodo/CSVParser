@@ -139,10 +139,7 @@ bot.on("message", msg => {
         msg.channel.sendMessage(pulls.join(" "));
 
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
-        var message = msg.content;
-        var messageLength = message.length;
-        var setLocation = message.indexOf(" ", 0);
-        var setName = message.slice(setLocation + 1, messageLength);
+        var setName = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
         var setInfo = findSet(setName.toLowerCase());
         if (setInfo != "nosuchset") msg.channel.sendMessage(setInfo);
         else msg.channel.sendMessage("Unknown Set!");
