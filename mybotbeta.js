@@ -58,10 +58,10 @@ function findNameByAlias(alias, isSet) {
     else var aliasList = aliasListHeroes;
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
         for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
-          	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
+            if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
         }
     }
-  	return "nosuchalias";
+    return "nosuchalias";
 }
 function findData(alias, isSet) {
     if (isSet) {
@@ -71,7 +71,7 @@ function findData(alias, isSet) {
         var name = findNameByAlias(alias, false);
         var dataTable = heroDataTable;
     }
-  	if (name == "nosuchalias") return "nosuchdata";
+    if (name == "nosuchalias") return "nosuchdata";
     const data = dataTable.find(dataItem => dataItem.Name === name);
 
     return createOutput(data);
