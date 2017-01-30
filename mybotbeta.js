@@ -2,7 +2,8 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Shared/config.json");
 const setTable = require(config.DataFilePath + "/FWTSetData.json");
-const aliasList = require(config.DataFilePath + "/FWTSetAliases.json");
+const aliasListSets = require(config.DataFilePath + "/FWTSetAliases.json");
+const aliasListHeroes = require(config.DataFilePath + "/FWTHeroAliases.json");
 const rainbowRotation = require(config.DataFilePath + "/FWTSetRotation.json");
 const HeroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
 
@@ -13,6 +14,17 @@ for (let i = 0, len = setTable.length; i < len; i++) {
             setTable[i]["Last Time in the Rotation"] = rainbowRotation[j]["Week"];
         }
     }
+}
+
+function createOutput(list) {
+    var dataString = "";
+    for (var property in list) {
+        if (list.hasOwnProperty(property)) {
+            dataString = dataString + property + ": " + list[property] + "\n";
+        }
+    }
+
+    return dataString;
 }
 
 function coocooPull(isLast) {
@@ -48,17 +60,19 @@ function findEmojiFromGuildByName(guild, emoji_name) {
     return emoji ? emoji.toString() : emoji_name;
 }
 
-function SetNameByAlias(SetAlias) {
+function findNameByAlias(alias, isSet) {
+    if (isSet) const aliasList = aliasListSets;
+    else const aliasList = aliasListHeroes;
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
         for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
-          	if (aliasList[i]["aliases"][j] == SetAlias) return aliasList[i]["name"];
+          	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
         }
     }
   	return "nosuchalias";
 }
 
-function findSet(SetAlias) {
-  	var name = SetNameByAlias(SetAlias);
+function findSet(setAlias) {
+  	var name = findNameByAlias(setAlias, true);
   	if (name == "nosuchalias") return "nosuchset";
     var setData = setTable[0];
 
@@ -66,14 +80,7 @@ function findSet(SetAlias) {
         if (setTable[i]["Name"] == name) setData = setTable[i];
     }
 
-    var dataString = "";
-    for (var property in setData) {
-        if (setData.hasOwnProperty(property)) {
-            dataString = dataString + property + ": " + setData[property] + "\n";
-        }
-    }
-
-    return dataString;
+    return createOutput(setData);
 }
 
 function PullOrNot() {
