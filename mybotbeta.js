@@ -99,8 +99,11 @@ function SetsOfTheWeek(WeekRequested) {
 
 function HeroData(HeroRequested) {
 
-    var HeroDataLength = HeroDataTable.length;
     var HeroData = HeroDataTable[0];
+
+    for (var i = 1, len = HeroDataTable.length; i < len; i++) {
+        if (HeroDataTable[i]["Name"] == HeroRequested) HeroData = HeroDataTable[i];
+    }
     var dataString = "";
 
     for (var property in HeroData) {
@@ -170,7 +173,15 @@ bot.on("message", msg => {
         } else WeekRequested = 0;
         const currentSets = SetsOfTheWeek(WeekRequested);
         msg.channel.sendMessage(currentSets);
-    }
+
+    } else if (msg.content.startsWith(config.prefix + "stats")) {
+        var message = msg.content;
+        var messageLength = message.length;
+        var HeroLocation = message.indexOf(" ",0);
+        var HeroRequested = message.slice(HeroLocation + 1, messageLength);
+        var HeroStats = HeroData(HeroRequested);
+        msg.channel.sendMessage(HeroStats);
+    } 
 });
 bot.on("ready", () => {
     console.log("I am ready!");
