@@ -28,7 +28,6 @@ function createOutput(list) {
 
 function coocooPull(isLast) {
     var number = Math.random();
-    var pull;
     if (isLast) {
         var junkrate = 0;
         var platrate = 0;
@@ -40,12 +39,11 @@ function coocooPull(isLast) {
         var arate = 0.1;
         var srate = 0.045;
     }
-    if (number < junkrate) pull = "junk";
-    else if (junkrate <= number && number < junkrate + platrate) pull = "platinum";
-    else if (junkrate + platrate <= number && number < junkrate + platrate + arate) pull = "A_set";
-    else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) pull = "S_set";
-    else pull = "SS_set";
-    return pull;
+    if (number < junkrate) return "junk";
+    else if (junkrate <= number && number < junkrate + platrate) return "platinum";
+    else if (junkrate + platrate <= number && number < junkrate + platrate + arate) return "A_set";
+    else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) return "S_set";
+    else return "SS_set";
 }
 
 function coocooPull10() {
@@ -70,15 +68,22 @@ function findNameByAlias(alias, isSet) {
   	return "nosuchalias";
 }
 
-function findSet(setAlias) {
-  	var name = findNameByAlias(setAlias, true);
-  	if (name == "nosuchalias") return "nosuchset";
-    var setData = setTable[0];
-    for (var i = 1, len = setTable.length; i < len; i++) {
-        if (setTable[i]["Name"] == name) setData = setTable[i];
+function findData(alias, isSet) {
+    if (isSet) {
+  	    var name = findNameByAlias(alias, true);
+        var dataTable = setTable;
+    }
+    else {
+  	    var name = findNameByAlias(alias, false);
+        var dataTable = heroDataTable;
+    }
+  	if (name == "nosuchalias") return "nosuchdata";
+    var data = dataTable[0];
+    for (var i = 1, len = dataTable.length; i < len; i++) {
+        if (dataTable[i]["Name"] == name) data = dataTable[i];
     }
 
-    return createOutput(setData);
+    return createOutput(data);
 }
 
 function PullOrNot() {
@@ -92,17 +97,6 @@ function PullOrNot() {
 function SetsOfTheWeek(WeekRequested) {
     var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
     return createOutput(rainbowData);
-}
-
-function findHeroData(alias) {
-    var name = findNameByAlias(alias, false);
-    if (name == "nosuchalias") return "nosuchhero";
-    var heroData = heroDataTable[0];
-
-    for (var i = 1, len = heroDataTable.length; i < len; i++) {
-        if (heroDataTable[i]["Name"] == name) heroData = heroDataTable[i];
-    }
-    return createOutput(heroData);
 }
 
 bot.on("message", msg => {
@@ -133,10 +127,16 @@ bot.on("message", msg => {
 
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
         var setName = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
-        var setInfo = findSet(setName.toLowerCase());
-        if (setInfo != "nosuchset") msg.channel.sendMessage(setInfo);
+        var setInfo = findData(setName.toLowerCase(), true);
+        if (setInfo != "nosuchdata") msg.channel.sendMessage(setInfo);
         else msg.channel.sendMessage("Unknown Set!");
 
+    } else if (msg.content.startsWith(config.prefix + "stats")) {
+        var heroRequested = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
+        var heroStats = findData(heroRequested.toLowerCase(), false);
+        if (heroStats != "nosuchdata") msg.channel.sendMessage(setInfo);
+        else msg.channel.sendMessage("Unknown Hero!");
+        
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
         msg.guild.member(bot.user).setNickname("A Certain Magical Bot");
         msg.channel.sendMessage("My name has been set!");
@@ -147,12 +147,7 @@ bot.on("message", msg => {
         } else WeekRequested = 0;
         const currentSets = SetsOfTheWeek(WeekRequested);
         msg.channel.sendMessage(currentSets);
-
-    } else if (msg.content.startsWith(config.prefix + "stats")) {
-        var HeroRequested = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
-        var HeroStats = findHeroData(HeroRequested);
-        msg.channel.sendMessage(HeroStats);
-    } 
+    }
 });
 bot.on("ready", () => {
     console.log("I am ready!");
