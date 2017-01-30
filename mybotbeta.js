@@ -115,26 +115,17 @@ bot.on("message", msg => {
     }
 
 
-    if (msg.content.startsWith(config.prefix + "ping")) { // Testing purposes
-        msg.channel.sendMessage("pong!");
-
-    } else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) {
-        msg.channel.sendMessage("おかえりなさいませ！ご主人様♥, \nDo you want dinner or a shower or \*blushes\* me?");
-
-    } else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("spades"))) {
-        msg.channel.sendMessage("おかえりなさいませ！ご主人様 :anger:, \nWell, I don't have much of a choice. I guess I'll end this here since I got ~~Shido~~ Spades-san to pat my head today.----right, all of me?");
-
-    } else if (msg.content.startsWith(config.prefix + "tadaima")) {
-        msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
-
-    } else if (msg.content.startsWith(config.prefix + "tuturu")) { // Tuturu
-        msg.channel.sendFile(config.FilePath + "/Images/Tuturu.png"); 
+    if (msg.content.startsWith(config.prefix + "ping")) msg.channel.sendMessage("pong!"); // Testing purposes
+    else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様♥, \nDo you want dinner or a shower or \*blushes\* me?");
+    else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("spades"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様 :anger:, \nWell, I don't have much of a choice. I guess I'll end this here since I got ~~Shido~~ Spades-san to pat my head today.----right, all of me?");
+    else if (msg.content.startsWith(config.prefix + "tadaima")) msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
+    else if (msg.content.startsWith(config.prefix + "tuturu")) msg.channel.sendFile(config.FilePath + "/Images/Tuturu.png"); // Tuturu
+    else if (msg.content.startsWith(config.prefix + "moe")) msg.channel.sendFile(config.FilePath + "/Images/moe.PNG");
+    //end of random irrelevant stuff
     
-    } else if (msg.content.startsWith(config.prefix + "pull")) { // Single pull
-        const ShouldIPull = PullOrNot();
-        msg.channel.sendFile(ShouldIPull);
-
-    } else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
+    else if (msg.content.startsWith(config.prefix + "pull")) msg.channel.sendFile(PullOrNot());
+    
+    else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
         const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
         msg.channel.sendMessage(pulls.join(" "));
 
@@ -144,20 +135,13 @@ bot.on("message", msg => {
         if (setInfo != "nosuchset") msg.channel.sendMessage(setInfo);
         else msg.channel.sendMessage("Unknown Set!");
 
-    } else if (msg.content.startsWith(config.prefix + "moe")) {
-        msg.channel.sendFile(config.FilePath + "/Images/moe.PNG");
-
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
-        const member = msg.guild.member(bot.user);
-        member.setNickname("A Certain Magical Bot");
+        msg.guild.member(bot.user).setNickname("A Certain Magical Bot");
         msg.channel.sendMessage("My name has been set!");
 
     } else if (msg.content.startsWith(config.prefix + "rainbow")) {
-        var message = msg.content;
-        var messageLength = message.length;
-        var weekLocation = message.indexOf(" ",0);
-        if (weekLocation != -1) {
-            var WeekRequested = message.slice(weekLocation + 1, messageLength);
+        if (msg.content.indexOf(" ",0) != -1) {
+            var WeekRequested = msg.content.slice(msg.content.indexOf(" ",0) + 1, msg.content.length);
         } else WeekRequested = 0;
         const currentSets = SetsOfTheWeek(WeekRequested);
         msg.channel.sendMessage(currentSets);
