@@ -5,7 +5,7 @@ const setTable = require(config.DataFilePath + "/FWTSetData.json");
 const aliasListSets = require(config.DataFilePath + "/FWTSetAliases.json");
 const aliasListHeroes = require(config.DataFilePath + "/FWTHeroAliases.json");
 const rainbowRotation = require(config.DataFilePath + "/FWTSetRotation.json");
-const HeroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
+const heroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
 
 for (let i = 0, len = setTable.length; i < len; i++) {
     for (let j = 0, weeks = rainbowRotation.length; j < weeks; j++) {
@@ -23,7 +23,6 @@ function createOutput(list) {
             dataString = dataString + property + ": " + list[property] + "\n";
         }
     }
-
     return dataString;
 }
 
@@ -75,7 +74,6 @@ function findSet(setAlias) {
   	var name = findNameByAlias(setAlias, true);
   	if (name == "nosuchalias") return "nosuchset";
     var setData = setTable[0];
-
     for (var i = 1, len = setTable.length; i < len; i++) {
         if (setTable[i]["Name"] == name) setData = setTable[i];
     }
@@ -92,33 +90,19 @@ function PullOrNot() {
 }
 
 function SetsOfTheWeek(WeekRequested) {
-    var RotationLength = rainbowRotation.length;
-    var rainbowData = rainbowRotation[RotationLength - 1 - WeekRequested];
-    var dataString = "";
-
-    for (var property in rainbowData) {
-        if (rainbowData.hasOwnProperty(property)) {
-            dataString = dataString + property + ": " + rainbowData[property] + "\n";
-        }
-    }
-    return dataString;
+    var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
+    return createOutput(rainbowData);
 }
 
-function HeroData(HeroRequested) {
+function findHeroData(alias) {
+    var name = findNameByAlias(alias, false);
+    if (name == "nosuchalias") return "nosuchhero";
+    var heroData = heroDataTable[0];
 
-    var HeroData = HeroDataTable[0];
-
-    for (var i = 1, len = HeroDataTable.length; i < len; i++) {
-        if (HeroDataTable[i]["Name"] == HeroRequested) HeroData = HeroDataTable[i];
+    for (var i = 1, len = heroDataTable.length; i < len; i++) {
+        if (heroDataTable[i]["Name"] == name) heroData = heroDataTable[i];
     }
-    var dataString = "";
-
-    for (var property in HeroData) {
-        if (HeroData.hasOwnProperty(property)) {
-            dataString = dataString + property + ": " + HeroData[property] + "\n";
-        }
-    }
-    return dataString;
+    return createOutput(heroData);
 }
 
 bot.on("message", msg => {
@@ -186,7 +170,7 @@ bot.on("message", msg => {
         var messageLength = message.length;
         var HeroLocation = message.indexOf(" ",0);
         var HeroRequested = message.slice(HeroLocation + 1, messageLength);
-        var HeroStats = HeroData(HeroRequested);
+        var HeroStats = findHeroData(HeroRequested);
         msg.channel.sendMessage(HeroStats);
     } 
 });
