@@ -16,16 +16,6 @@ for (let i = 0, len = setTable.length; i < len; i++) {
     }
 }
 
-function createOutput(list) {
-    var dataString = "";
-    for (var property in list) {
-        if (list.hasOwnProperty(property)) {
-            dataString = dataString + property + ": " + list[property] + "\n";
-        }
-    }
-    return dataString;
-}
-
 function coocooPull(isLast) {
     var number = Math.random();
     if (isLast) {
@@ -45,18 +35,24 @@ function coocooPull(isLast) {
     else if (junkrate + platrate + arate <= number && number < junkrate + platrate + arate + srate) return "S_set";
     else return "SS_set";
 }
-
 function coocooPull10() {
     var pull10 = new Array(10);
     pull10.fill(null);
     return pull10.map((element, index, array) => coocooPull(index === array.length - 1));
-}
+}   // End of CooCoo Pulling functions
 
-function findEmojiFromGuildByName(guild, emoji_name) {
-    const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
-    return emoji ? emoji.toString() : emoji_name;
-}
 
+
+function createOutput(list) {
+    const flagNames = ["confusion", "charm", "stun", "taunt", "disarm", "immobilize", "decrease movement", "dot", "mp burn", "skill cost", "defense ignore", "defense ignoring damage", "weakening", "buff removal", "hp% damage", "defense decrease", "attack decrease", "hp drain"];
+    var dataString = "";
+    for (var property in list) {
+        if ((list.hasOwnProperty(property)) && (!flagNames.includes(property))) {
+            dataString = dataString + property + ": " + list[property] + "\n";
+        }
+    }
+    return dataString;
+}
 function findNameByAlias(alias, isSet) {
     if (isSet) var aliasList = aliasListSets;
     else var aliasList = aliasListHeroes;
@@ -67,7 +63,6 @@ function findNameByAlias(alias, isSet) {
     }
   	return "nosuchalias";
 }
-
 function findData(alias, isSet) {
     if (isSet) {
   	    var name = findNameByAlias(alias, true);
@@ -85,6 +80,12 @@ function findData(alias, isSet) {
 
     return createOutput(data);
 }
+function SetsOfTheWeek(WeekRequested) {
+    var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
+    return createOutput(rainbowData);
+}   // End of database functions
+
+
 
 function PullOrNot() {
     var number = Math.random();
@@ -93,11 +94,12 @@ function PullOrNot() {
     else YesNo = config.FilePath + "/Images/Don't Pull.png";
     return YesNo;
 }
+function findEmojiFromGuildByName(guild, emoji_name) {
+    const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
+    return emoji ? emoji.toString() : emoji_name;
+}   // End of random functions
 
-function SetsOfTheWeek(WeekRequested) {
-    var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
-    return createOutput(rainbowData);
-}
+
 
 bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
@@ -117,7 +119,7 @@ bot.on("message", msg => {
     else if (msg.content.startsWith(config.prefix + "tadaima")) msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
     else if (msg.content.startsWith(config.prefix + "tuturu")) msg.channel.sendFile(config.FilePath + "/Images/Tuturu.png"); // Tuturu
     else if (msg.content.startsWith(config.prefix + "moe")) msg.channel.sendFile(config.FilePath + "/Images/Shushu/moe.PNG");
-    //end of random irrelevant stuff
+    // End of customer service
     
     else if (msg.content.startsWith(config.prefix + "pull")) msg.channel.sendFile(PullOrNot());
     
@@ -134,7 +136,7 @@ bot.on("message", msg => {
     } else if (msg.content.startsWith(config.prefix + "stats")) {
         var heroRequested = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
         var heroStats = findData(heroRequested.toLowerCase(), false);
-        if (heroStats != "nosuchdata") msg.channel.sendMessage(setInfo);
+        if (heroStats != "nosuchdata") msg.channel.sendMessage(heroStats);
         else msg.channel.sendMessage("Unknown Hero!");
         
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
