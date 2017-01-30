@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const config = require("/Users/Shared/config.json");
-var setTable = require(config.FilePath + "/FWTSetData.json");
-const aliasList = require(config.FilePath + "/FWTSetAliases.json");
-const rainbowRotation = require(config.FilePath + "/FWTSetRotation.json");
+const setTable = require(config.DataFilePath + "/FWTSetData.json");
+const aliasList = require(config.DataFilePath + "/FWTSetAliases.json");
+const rainbowRotation = require(config.DataFilePath + "/FWTSetRotation.json");
+const HeroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
 
 for (let i = 0, len = setTable.length; i < len; i++) {
     for (let j = 0, weeks = rainbowRotation.length; j < weeks; j++) {
@@ -47,17 +48,17 @@ function findEmojiFromGuildByName(guild, emoji_name) {
     return emoji ? emoji.toString() : emoji_name;
 }
 
-function nameByAlias(alias) {
+function SetNameByAlias(SetAlias) {
     for (var i = 0, setnum = aliasList.length; i < setnum; i++) {
         for (var j = 0, len = aliasList[i]["aliases"].length; j < len; j++) {
-          	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
+          	if (aliasList[i]["aliases"][j] == SetAlias) return aliasList[i]["name"];
         }
     }
   	return "nosuchalias";
 }
 
-function findSet(alias) {
-  	var name = nameByAlias(alias);
+function findSet(SetAlias) {
+  	var name = SetNameByAlias(SetAlias);
   	if (name == "nosuchalias") return "nosuchset";
     var setData = setTable[0];
 
@@ -78,8 +79,8 @@ function findSet(alias) {
 function PullOrNot() {
     var number = Math.random();
     var YesNo;
-    if (number <= 0.5) YesNo =  config.FilePath + "/Images/Pull.png";
-    else YesNo = config.FilePath + "/Images/Don't Pull.png";
+    if (number <= 0.5) YesNo =  config.DataFilePath + "/Images/Pull.png";
+    else YesNo = config.DataFilePath + "/Images/Don't Pull.png";
     return YesNo;
 }
 
@@ -91,6 +92,23 @@ function SetsOfTheWeek(WeekRequested) {
     for (var property in rainbowData) {
         if (rainbowData.hasOwnProperty(property)) {
             dataString = dataString + property + ": " + rainbowData[property] + "\n";
+        }
+    }
+    return dataString;
+}
+
+function HeroData(HeroRequested) {
+
+    var HeroData = HeroDataTable[0];
+
+    for (var i = 1, len = HeroDataTable.length; i < len; i++) {
+        if (HeroDataTable[i]["Name"] == HeroRequested) HeroData = HeroDataTable[i];
+    }
+    var dataString = "";
+
+    for (var property in HeroData) {
+        if (HeroData.hasOwnProperty(property)) {
+            dataString = dataString + property + ": " + HeroData[property] + "\n";
         }
     }
     return dataString;
@@ -119,7 +137,7 @@ bot.on("message", msg => {
         msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
 
     } else if (msg.content.startsWith(config.prefix + "tuturu")) { // Tuturu
-        msg.channel.sendMessage("tuturu"); 
+        msg.channel.sendFile(config.FilePath + "/Images/Tuturu.png"); 
     
     } else if (msg.content.startsWith(config.prefix + "pull")) { // Single pull
         const ShouldIPull = PullOrNot();
@@ -153,10 +171,17 @@ bot.on("message", msg => {
         if (weekLocation != -1) {
             var WeekRequested = message.slice(weekLocation + 1, messageLength);
         } else WeekRequested = 0;
-
         const currentSets = SetsOfTheWeek(WeekRequested);
         msg.channel.sendMessage(currentSets);
-    }
+
+    } else if (msg.content.startsWith(config.prefix + "stats")) {
+        var message = msg.content;
+        var messageLength = message.length;
+        var HeroLocation = message.indexOf(" ",0);
+        var HeroRequested = message.slice(HeroLocation + 1, messageLength);
+        var HeroStats = HeroData(HeroRequested);
+        msg.channel.sendMessage(HeroStats);
+    } 
 });
 bot.on("ready", () => {
     console.log("I am ready!");
