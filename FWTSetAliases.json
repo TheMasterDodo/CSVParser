@@ -24,7 +24,7 @@
   },
   {
     "name": "Thank-you Letter",
-    "aliases": ["thank-you letter", "thank you letter", "anniversary"]
+    "aliases": ["thank-you letter", "thank you letter", "anniversary", "letter", "thank you"]
   },
   {
     "name": "Blue Moonlight Season",
@@ -136,7 +136,7 @@
   },
   {
     "name": "Skilled Martial Artist",
-    "aliases": ["skilled martial artist"]
+    "aliases": ["skilled martial artist", "sma", "martial artist", "ma"]
   },
   {
     "name": "Super Ranger: Green",
@@ -144,7 +144,7 @@
   },
   {
     "name": "Coocoo Ranger: Red",
-    "aliases": ["coocoo ranger: red", "red coocoo ranger", "coocoo ranger"]
+    "aliases": ["coocoo ranger: red", "red coocoo ranger", "coocoo ranger", "coocoo rr", "cc rr"]
   },
   {
     "name": "Extra Curriculum",
@@ -164,7 +164,7 @@
   },
   {
     "name": "Pumpkin Ghost Step",
-    "aliases": ["pumpkin ghost step", "pumpkin gs", "pumpkin"]
+    "aliases": ["pumpkin ghost step", "pumpkin gs", "pumpkin", "pgs"]
   },
   {
     "name": "Dasomier Batte Suit (Mass Prod. Type)",
@@ -352,11 +352,11 @@
   },
   {
     "name": "Mad Guitarist",
-    "aliases": ["mad guitarist"]
+    "aliases": ["mad guitarist", "guitar", "mad guitar"]
   },
   {
     "name": "Shadow Corps",
-    "aliases": ["shadow corps", "sc"]
+    "aliases": ["shadow corps", "sc", "corps"]
   },
   {
     "name": "Nephthys Conqueror",
@@ -420,7 +420,7 @@
   },
   {
     "name": "Winner's Proof",
-    "aliases": ["winner's proof", "winner proof"]
+    "aliases": ["winner's proof", "winner proof", "wp"]
   },
   {
     "name": "Austere Noble",
@@ -448,7 +448,7 @@
   },
   {
     "name": "Crusader's Light",
-    "aliases": ["crusader's light", "crusader light"]
+    "aliases": ["crusader's light", "crusader light", "cl"]
   },
   {
     "name": "Undaunted Fighter",
@@ -560,7 +560,7 @@
   },
   {
     "name": "Die to Live",
-    "aliases": ["die to live"]
+    "aliases": ["die to live", "dtl", "die"]
   },
   {
     "name": "Ultimate Weapon Gold Tiger",

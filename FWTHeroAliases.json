@@ -1,143 +1,145 @@
 [
-{"Name":"Alex","Aliases":["alex", "lancer"]}
+{"name":"Alex","aliases":["alex", "lancer"]}
 ,
-{"Name":"Alfred","Aliases":["alfred", "professor"]}
+{"name":"Alfred","aliases":["alfred", "professor"]}
 ,
-{"Name":"Angela","Aliases":["angela"]}
+{"name":"Angela","aliases":["angela"]}
 ,
-{"Name":"Azrael","Aliases":["azrael", "azreal"]}
+{"name":"Azrael","aliases":["azrael", "azreal"]}
 ,
-{"Name":"Banshee","Aliases":["banshee"]}
+{"name":"Banshee","aliases":["banshee"]}
 ,
-{"Name":"Bearman","Aliases":["bearman", "bear"]}
+{"name":"Bearman","aliases":["bearman", "bear"]}
 ,
-{"Name":"Belle","Aliases":["belle"]}
+{"name":"Belle","aliases":["belle"]}
 ,
-{"Name":"Carrot","Aliases":["carrot"]}
+{"name":"Carrot","aliases":["carrot"]}
 ,
-{"Name":"Celestial","Aliases":["celestial", "celes", "cel"]}
+{"name":"Celestial","aliases":["celestial", "celes", "cel"]}
 ,
-{"Name":"Chenny","Aliases":["chenny"]}
+{"name":"Chenny","aliases":["chenny"]}
 ,
-{"Name":"Chris","Aliases":["chris"]}
+{"name":"Chris","aliases":["chris"]}
 ,
-{"Name":"Cleo","Aliases":["cleo"]}
+{"name":"Cleo","aliases":["cleo"]}
 ,
-{"Name":"Deborah","Aliases":["deborah", "deb"]}
+{"name":"Deborah","aliases":["deborah", "deb"]}
 ,
-{"Name":"Deimos","Aliases":["deimos", "demois"]}
+{"name":"Deimos","aliases":["deimos", "demois"]}
 ,
-{"Name":"Dolores","Aliases":["dolores", "dorlors"]}
+{"name":"Dolores","aliases":["dolores", "dorlors"]}
 ,
-{"Name":"Dominique","Aliases":["dominique", "dom"]}
+{"name":"Dominique","aliases":["dominique", "dom"]}
 ,
-{"Name":"Elektra","Aliases":["elektra", "elek"]}
+{"name":"Elektra","aliases":["elektra", "elek"]}
 ,
-{"Name":"Evan","Aliases":["evan"]}
+{"name":"Evan","aliases":["evan"]}
 ,
-{"Name":"Frankenstein","Aliases":["frankenstein", "frank"]}
+{"name":"Frankenstein","aliases":["frankenstein", "frank"]}
 ,
-{"Name":"Fruel","Aliases":["fruel"]}
+{"name":"Fruel","aliases":["fruel"]}
 ,
-{"Name":"Gillan","Aliases":["gillan", "gil"]}
+{"name":"Gillan","aliases":["gillan", "gil"]}
 ,
-{"Name":"Hella","Aliases":["hella"]}
+{"name":"Hella","aliases":["hella"]}
 ,
-{"Name":"Henry","Aliases":["henry"]}
+{"name":"Henry","aliases":["henry"]}
 ,
-{"Name":"Ian","Aliases":["ian", "cat"]}
+{"name":"Ian","aliases":["ian", "cat"]}
 ,
-{"Name":"Jack","Aliases":["jack"]}
+{"name":"Jack","aliases":["jack"]}
 ,
-{"Name":"Jenny","Aliases":["jenny"]}
+{"name":"Jenny","aliases":["jenny"]}
 ,
-{"Name":"Jin","Aliases":["jin"]}
+{"name":"Jin","aliases":["jin"]}
 ,
-{"Name":"Jin Kisaragi","Aliases":["jin kisaragi", "jink"]}
+{"name":"Jin Kisaragi","aliases":["jin kisaragi", "jink"]}
 ,
-{"Name":"Kai","Aliases":["kai"]}
+{"name":"Kai","aliases":["kai"]}
 ,
-{"Name":"Kitty","Aliases":["kitty"]}
+{"name":"Kitty","aliases":["kitty"]}
 ,
-{"Name":"Klein","Aliases":["klein"]}
+{"name":"Klein","aliases":["klein"]}
 ,
-{"Name":"Krut","Aliases":["krut"]}
+{"name":"Krut","aliases":["krut"]}
 ,
-{"Name":"Lance","Aliases":["lance"]}
+{"name":"Lance","aliases":["lance"]}
 ,
-{"Name":"Lee","Aliases":["lee"]} 
+{"name":"Lee","aliases":["lee"]} 
 ,
-{"Name":"Lena","Aliases":["lena"]}
+{"name":"Lena","aliases":["lena"]}
 ,
-{"Name":"Lilid","Aliases":["lilid"]}
+{"name":"Lilid","aliases":["lilid"]}
 ,
-{"Name":"Lily","Aliases":["lily"]}
+{"name":"Lily","aliases":["lily"]}
 ,
-{"Name":"Lucas","Aliases":["lucas", "zombie"]}
+{"name":"Lucas","aliases":["lucas", "zombie"]}
 ,
-{"Name":"Mas","Aliases":["mas"]}
+{"name":"Mas","aliases":["mas"]}
 ,
-{"Name":"Mercedes","Aliases":["mercedes", "merc"]}
+{"name":"Mercedes","aliases":["mercedes", "merc"]}
 ,
-{"Name":"Moa","Aliases":["moa"]}
+{"name":"Moa","aliases":["moa"]}
 ,
-{"Name":"Momo","Aliases":["momo"]}
+{"name":"Momo","aliases":["momo"]}
 ,
-{"Name":"Mu","Aliases":["mu"]}
+{"name":"Mu","aliases":["mu"]}
 ,
-{"Name":"Muang","Aliases":["muang"]}
+{"name":"Muang","aliases":["muang"]}
 ,
-{"Name":"Muzaka","Aliases":["muzaka", "muz"]}
+{"name":"Muzaka","aliases":["muzaka", "muz"]}
 ,
-{"Name":"Nirvana","Aliases":["nirvana"]}
+{"name":"Nirvana","aliases":["nirvana"]}
 ,
-{"Name":"Noel","Aliases":["noel"]}
+{"name":"Noel","aliases":["noel"]}
 ,
-{"Name":"Nox","Aliases":["nox"]}
+{"name":"Nox","aliases":["nox"]}
 ,
-{"Name":"Persona","Aliases":["persona", "theif"]}
+{"name":"Persona","aliases":["persona", "theif"]}
 ,
-{"Name":"Phantom","Aliases":["phantom"]}
+{"name":"Phantom","aliases":["phantom"]}
 ,
-{"Name":"Poni","Aliases":["poni"]}
+{"name":"Poni","aliases":["poni"]}
 ,
-{"Name":"Rachel","Aliases":["rachel", "rach"]}
+{"name":"Rachel","aliases":["rachel", "rach"]}
 ,
-{"Name":"Raboff","Aliases":["raboff", "ranboff", "ramboff"]}
+{"name":"Raboff","aliases":["raboff", "ranboff", "ramboff"]}
 ,
-{"Name":"Rage","Aliases":["rage"]}
+{"name":"Rage","aliases":["rage"]}
 ,
-{"Name":"Ragna","Aliases":["ragna"]}
+{"name":"Ragna","aliases":["ragna"]}
 ,
-{"Name":"Raizel","Aliases":["raizel", "rai"]}
+{"name":"Raizel","aliases":["raizel", "rai"]}
 ,
-{"Name":"Raskreia","Aliases":["raskreia", "rask"]}
+{"name":"Raskreia","aliases":["raskreia", "rask"]}
 ,
-{"Name":"Reina","Aliases":["reina"]}
+{"name":"Reina","aliases":["reina"]}
 ,
-{"Name":"Seira","Aliases":["seira"]}
+{"name":"Seira","aliases":["seira"]}
 ,
-{"Name":"Serendi","Aliases":["serendi"]}
+{"name":"Serendi","aliases":["serendi"]}
 ,
-{"Name":"Shark","Aliases":["shark"]}
+{"name":"Shark","aliases":["shark"]}
 ,
-{"Name":"Shu-shu","Aliases":["shu-shu", "shu", "shushu"]}
+{"name":"Shu-shu","aliases":["shu-shu", "shu", "shushu"]}
 ,
-{"Name":"Sione","Aliases":["sione"]}
+{"name":"Sione","aliases":["sione"]}
 ,
-{"Name":"Sonic Boom","Aliases":["sonic boom", "sonic"]}
+{"name":"Sonic Boom","aliases":["sonic boom", "sonic"]}
 ,
-{"Name":"Spooky","Aliases":["spooky"]}
+{"name":"Spooky","aliases":["spooky"]}
 ,
-{"Name":"Sraka","Aliases":["sraka"]}
+{"name":"Sraka","aliases":["sraka"]}
 ,
-{"Name":"Tao","Aliases":["tao"]}
+{"name":"Tao","aliases":["tao"]}
 ,
-{"Name":"Unknown","Aliases":["unknown"]}
+{"name":"Unknown","aliases":["unknown"]}
 ,
-{"Name":"Valkyrie","Aliases":["valkyrie", "valk", "val"]}
+{"name":"Valkyrie","aliases":["valkyrie", "valk", "val"]}
 ,
-{"Name":"Yekaterina","Aliases":["yekaterina", "yeak", "yeka"]}
+{"name":"Yekaterina","aliases":["yekaterina", "yeak", "yeka"]}
 ,
-{"Name":"Zero","Aliases":["zero"]}
+{"name":"Zero","aliases":["zero"]}
+,
+{"name":"Bantya","aliases":["bantya", "bant", "bants"]}
 ]

@@ -1026,11 +1026,11 @@
     "Name": "Oblivious Past",
     "Tier": "★★★★★",
     "Grade": "SS",
-    "Weapon": "None",
-    "Armor": "None",
-    "Accessory": "None",
-    "2pc": "None",
-    "3pc": "None",
+    "Weapon": "Mace",
+    "Armor": "Armor",
+    "Accessory": "Necklace",
+    "2pc": "Increases HP by 15800, increases Attack by 3082",
+    "3pc": "Ignores damage from counter attacks",
     "Restrictions": "None"
   },
   {
