@@ -116,11 +116,13 @@ bot.on("message", msg => {
 
 
     if (msg.content.startsWith(config.prefix + "ping")) msg.channel.sendMessage("pong!"); // Testing purposes
+
+    
     else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様♥, \nDo you want dinner or a shower or \*blushes\* me?");
     else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("spades"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様 :anger:, \nWell, I don't have much of a choice. I guess I'll end this here since I got ~~Shido~~ Spades-san to pat my head today.----right, all of me?");
     else if (msg.content.startsWith(config.prefix + "tadaima")) msg.channel.sendMessage("Okaeri dear, \nDo you want dinner or a shower or \*blushes\* me?");
     else if (msg.content.startsWith(config.prefix + "tuturu")) msg.channel.sendFile(config.FilePath + "/Images/Tuturu.png"); // Tuturu
-    else if (msg.content.startsWith(config.prefix + "moe")) msg.channel.sendFile(config.FilePath + "/Images/moe.PNG");
+    else if (msg.content.startsWith(config.prefix + "moe")) msg.channel.sendFile(config.FilePath + "/Images/Shushu/moe.PNG");
     //end of random irrelevant stuff
     
     else if (msg.content.startsWith(config.prefix + "pull")) msg.channel.sendFile(PullOrNot());
@@ -147,10 +149,7 @@ bot.on("message", msg => {
         msg.channel.sendMessage(currentSets);
 
     } else if (msg.content.startsWith(config.prefix + "stats")) {
-        var message = msg.content;
-        var messageLength = message.length;
-        var HeroLocation = message.indexOf(" ",0);
-        var HeroRequested = message.slice(HeroLocation + 1, messageLength);
+        var HeroRequested = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
         var HeroStats = findHeroData(HeroRequested);
         msg.channel.sendMessage(HeroStats);
     } 
