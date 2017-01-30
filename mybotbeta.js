@@ -61,28 +61,25 @@ function findNameByAlias(alias, isSet) {
           	if (aliasList[i]["aliases"][j] == alias) return aliasList[i]["name"];
         }
     }
+    
   	return "nosuchalias";
 }
 function findData(alias, isSet) {
     if (isSet) {
   	    var name = findNameByAlias(alias, true);
         var dataTable = setTable;
-    }
-    else {
+    } else {
   	    var name = findNameByAlias(alias, false);
         var dataTable = heroDataTable;
     }
+    
   	if (name == "nosuchalias") return "nosuchdata";
-    var data = dataTable[0];
-    for (var i = 1, len = dataTable.length; i < len; i++) {
-        if (dataTable[i]["Name"] == name) data = dataTable[i];
-    }
+    const data = dataTable.find(dataItem => dataItem.Name === name);
 
     return createOutput(data);
 }
 function SetsOfTheWeek(WeekRequested) {
-    var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
-    return createOutput(rainbowData);
+    return createOutput(rainbowRotation[rainbowRotation.length - 1 - WeekRequested]);
 }   // End of database functions
 
 
