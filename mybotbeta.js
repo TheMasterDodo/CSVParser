@@ -85,10 +85,10 @@ function findData(alias, isSet) {
 
     return createOutput(data);
 }
-function findFlag(flagRequested) {
+function findEffect(EffectRequested) {
     var dataString = "";
     for (var i = 0, setnum = heroDataTable.length; i < setnum; i++) {
-        if (heroDataTable[i][flagRequested] == "true") dataString = dataString + "\n" + heroDataTable[i]["Name"];
+        if (heroDataTable[i][EffectRequested] != "") dataString = dataString + "\n" + heroDataTable[i]["Name"];
     }
     return dataString;
 }
@@ -119,9 +119,18 @@ bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if ((msg.channel.id == config.ReservedGeneral) && (!msg.content.startsWith(config.prefix + "set")) && (!msg.content.startsWith(config.prefix + "rainbow")) && (!msg.content.startsWith(config.prefix + "pull")) && (!msg.content.startsWith(config.prefix + "stats"))) {
-        msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
-        return;
+    if (msg.channel.id == config.ReservedGeneral) {
+        const AllowedCommands = ["!set", "!rainbow", "!pull", "!hero", "!stats", "!ping"];
+        var command = 0;
+        for (var i = 0, cmdnum = AllowedCommands.length; i < cmdnum; i++) {
+            if (!msg.content.startsWith(AllowedCommands[i])) {
+                command = command++;
+                if (command == 6) {
+                    msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
+                    return;
+                }
+            }
+        }
     }   // Server specific commands
 
 
@@ -155,7 +164,7 @@ bot.on("message", msg => {
         
     } else if (msg.content.startsWith(config.prefix + "effect")) { // Searches database for the requested effect and returns which heroes can cause the effect
         var effect = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
-        var flagHeroes = findFlag(effect);
+        var flagHeroes = findEffect(effect);
         msg.channel.sendMessage(flagHeroes);
         
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
