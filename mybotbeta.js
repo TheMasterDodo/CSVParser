@@ -58,7 +58,7 @@ function createOutput(list) {
     for (var property in list) {
         if ((list.hasOwnProperty(property)) && (!flagNames.includes(property))) {
             dataString = dataString + property + ": " + list[property] + "\n";
-        }
+        } 
     }
     return dataString;
 }
@@ -84,6 +84,13 @@ function findData(alias, isSet) {
     const data = dataTable.find(dataItem => dataItem.Name === name);
 
     return createOutput(data);
+}
+function findFlag(flagRequested) {
+    var dataString = "";
+    for (var i = 0, setnum = heroDataTable.length; i < setnum; i++) {
+        if (heroDataTable[i][flagRequested] == "true") dataString = dataString + "\n" + heroDataTable[i]["Name"];
+    }
+    return dataString;
 }
 function SetsOfTheWeek(WeekRequested) {
     var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
@@ -112,7 +119,7 @@ bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true) && (msg.content.startsWith(config.prefix + "hero") !== true) && (msg.content.startsWith(config.prefix + "rainbow") !== true)) {
+    if ((msg.channel.id == config.ReservedGeneral) && (!msg.content.startsWith(config.prefix + "set")) && (!msg.content.startsWith(config.prefix + "rainbow")) && (!msg.content.startsWith(config.prefix + "pull")) && (!msg.content.startsWith(config.prefix + "stats"))) {
         msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
         return;
     }   // Server specific commands
@@ -145,6 +152,11 @@ bot.on("message", msg => {
         var heroStats = findData(heroRequested.toLowerCase(), false);
         if (heroStats != "nosuchdata") msg.channel.sendMessage(heroStats);
         else msg.channel.sendMessage("Unknown Hero!");
+        
+    } else if (msg.content.startsWith(config.prefix + "effect")) { // Searches database for the requested effect and returns which heroes can cause the effect
+        var effect = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
+        var flagHeroes = findFlag(effect);
+        msg.channel.sendMessage(flagHeroes);
         
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
         msg.guild.member(bot.user).setNickname("A Certain Magical Bot");
