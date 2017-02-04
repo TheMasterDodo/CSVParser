@@ -117,7 +117,12 @@ function PullOrNot() {
 function findEmojiFromGuildByName(guild, emoji_name) {
     const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
     return emoji ? emoji.toString() : emoji_name;
-}   // End of random functions
+}
+function capitalize(inputString) {
+    var outputString = inputString.substr(0, 1).toUpperCase() + inputString.substr(1, inputString.length - 1).toLowerCase();
+    console.log(outputString);
+    return outputString;
+}  // End of other functions
 
 //--------------------------------------------------------------------------------------------
 
@@ -175,12 +180,9 @@ bot.on("message", msg => {
         msg.channel.sendMessage(effectHeroes);
         
     } else if (msg.content.startsWith(config.prefix + "property")) { // Searches database for the requested property and returns which heroes can cause the effect
-        var propertyLocation = msg.content.indexOf(" ", 0) + 1;
-        var effectLocation = msg.content.indexOf(" ", propertyLocation);
-        var property = msg.content.slice(propertyLocation, effectLocation);
-        var effect = msg.content.slice(effectLocation + 1, msg.content.length);
-        console.log(property);
-        console.log(effect);
+        var splitContent = msg.content.split(" ");
+        var property = capitalize(splitContent[1]);
+        var effect = capitalize(splitContent[2]);
         var propertyHeroes = findProperty(property, effect);
         msg.channel.sendMessage(propertyHeroes);
         
