@@ -85,17 +85,24 @@ function findData(alias, isSet) {
 
     return createOutput(data);
 }
-function findEffect(EffectRequested) {
+function findEffect(effectRequested) {
     var dataString = "";
-    for (var i = 0, setnum = heroDataTable.length; i < setnum; i++) {
-        if (heroDataTable[i][EffectRequested] != "") dataString = dataString + "\n" + heroDataTable[i]["Name"];
+    for (var i = 0, heronum = heroDataTable.length; i < heronum; i++) {
+        if (heroDataTable[i][effectRequested] == "true") dataString = dataString + "\n" + heroDataTable[i]["Name"];
     }
     return dataString;
 }
 function SetsOfTheWeek(WeekRequested) {
     var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
     return createOutput(rainbowData);
-}   // End of database functions
+} 
+function findProperty(propertyRequested, effectRequested) {
+    var dataString = "";
+    for (var i = 0, heronum = heroDataTable.length; i < heronum; i++) {
+        if (heroDataTable[i][propertyRequested] == effectRequested) dataString = dataString + "\n" + heroDataTable[i]["Name"];
+    }
+    return dataString;
+} // End of database functions
 
 //--------------------------------------------------------------------------------------------
 
@@ -120,7 +127,7 @@ bot.on("message", msg => {
     if (msg.author.bot) return; // Checks if sender is a bot
 
     if (msg.channel.id == config.ReservedGeneral) {
-        const AllowedCommands = ["!set", "!rainbow", "!pull", "!hero", "!stats", "!ping"];
+        const AllowedCommands = ["!set", "!rainbow", "!pull", "!hero", "!stats", "!ping", !"property"];
         var command = 0;
         for (var i = 0, cmdnum = AllowedCommands.length; i < cmdnum; i++) {
             if (!msg.content.startsWith(AllowedCommands[i])) {
@@ -164,8 +171,18 @@ bot.on("message", msg => {
         
     } else if (msg.content.startsWith(config.prefix + "effect")) { // Searches database for the requested effect and returns which heroes can cause the effect
         var effect = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
-        var flagHeroes = findEffect(effect);
-        msg.channel.sendMessage(flagHeroes);
+        var effectHeroes = findEffect(effect);
+        msg.channel.sendMessage(effectHeroes);
+        
+    } else if (msg.content.startsWith(config.prefix + "property")) { // Searches database for the requested property and returns which heroes can cause the effect
+        var propertyLocation = msg.content.indexOf(" ", 0) + 1;
+        var effectLocation = msg.content.indexOf(" ", propertyLocation);
+        var property = msg.content.slice(propertyLocation, effectLocation);
+        var effect = msg.content.slice(effectLocation + 1, msg.content.length);
+        console.log(property);
+        console.log(effect);
+        var propertyHeroes = findProperty(property, effect);
+        msg.channel.sendMessage(propertyHeroes);
         
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
         msg.guild.member(bot.user).setNickname("A Certain Magical Bot");
