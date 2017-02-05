@@ -326,7 +326,7 @@
     "Armor": "Boots",
     "Accessory": "Brooch",
     "2pc": "Increase Defense by 700 (+850 if equipped by a balance-type hero)",
-    "3pc": "Increase HP by 2820 (+3507 if equipped by★★_ a balance-type hero)",
+    "3pc": "Increase HP by 2820 (+3507 if equipped by a balance-type hero)",
     "Restrictions": "None"
   },
   {
@@ -836,6 +836,17 @@
     "Restrictions": "Dodge is above 40%"
   },
   {
+    "Name": "Commander of the Central Knights",
+    "Tier": "★★★★",
+    "Grade": "SS",
+    "Weapon": "Sword",
+    "Armor": "Shield",
+    "Accessory": "Necklace",
+    "2pc": "Increase all allies Defense by 1100",
+    "3pc": "Increase Attack by 1800 for all allies in 2 cells around wearer",
+    "Restrictions": "None"
+  },
+  {
     "Name": "Forgotten Hitter No. 4",
     "Tier": "★★★★",
     "Grade": "SS",
@@ -1096,7 +1107,7 @@
     "Armor": "Shield",
     "Accessory": "Brooch",
     "2pc": "Increase HP by 11680",
-    "3pc": "Increase all allies★★_ Crit Rate by 800",
+    "3pc": "Decrease all enemies Crit Rate by 800",
     "Restrictions": "Activated when there are 3 or more allies alive"
   },
   {

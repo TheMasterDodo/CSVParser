@@ -3,15 +3,15 @@
 ,
 {"name":"Alfred","aliases":["alfred", "professor"]}
 ,
-{"name":"Angela","aliases":["angela"]}
+{"name":"Angela","aliases":["angela", "princess"]}
 ,
 {"name":"Azrael","aliases":["azrael", "azreal"]}
 ,
-{"name":"Banshee","aliases":["banshee"]}
+{"name":"Banshee","aliases":["banshee", "witch"]}
 ,
 {"name":"Bearman","aliases":["bearman", "bear"]}
 ,
-{"name":"Belle","aliases":["belle"]}
+{"name":"Belle","aliases":["belle", "bel"]}
 ,
 {"name":"Carrot","aliases":["carrot"]}
 ,
@@ -127,7 +127,7 @@
 ,
 {"name":"Sonic Boom","aliases":["sonic boom", "sonic"]}
 ,
-{"name":"Spooky","aliases":["spooky"]}
+{"name":"Spooky","aliases":["spooky", "snoopy"]}
 ,
 {"name":"Sraka","aliases":["sraka"]}
 ,

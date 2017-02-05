@@ -1,10 +1,10 @@
 [{
     "name": "Hot-blooded Fighter Boy",
-    "aliases": ["hot-blooded fighter boy", "hot-blooded fighter"]
+    "aliases": ["hot-blooded fighter boy", "hot-blooded fighter", "hot blooded", "hot blooded fighter boy", "fighter boy"]
   },
   {
     "name": "Knight of the Dawn",
-    "aliases": ["knight of the dawn", "kotd", "ss ba"]
+    "aliases": ["knight of the dawn", "kotd", "ss ba", "kod"]
   },
   {
     "name": "Death Blow",
@@ -36,7 +36,7 @@
   },
   {
     "name": "Volley of Bullets",
-    "aliases": ["volley of bullets"]
+    "aliases": ["volley of bullets", "volley"]
   },
   {
     "name": "Spirit of Cold Steel",
@@ -76,7 +76,7 @@
   },
   {
     "name": "Girgas Sandstorm",
-    "aliases": ["girgas sandstorm", "girgas"]
+    "aliases": ["girgas sandstorm", "girgas", "grigas"]
   },
   {
     "name": "Lista Blizzard",
@@ -452,11 +452,11 @@
   },
   {
     "name": "Undaunted Fighter",
-    "aliases": ["undaunted fighter"]
+    "aliases": ["undaunted fighter", "undaunted"]
   },
   {
     "name": "Phoenix's Apostle",
-    "aliases": ["phoenix's apostle", "phoenix apostle"]
+    "aliases": ["phoenix's apostle", "phoenix apostle", "phoenix"]
   },
   {
     "name": "Star Song",
@@ -536,7 +536,7 @@
   },
   {
     "name": "Short in Height, Tall in Heart",
-    "aliases": ["short in height, tall in heart", "short in height tall in heart", "toilet paper", "nobless paper", "paper", "tp"]
+    "aliases": ["short in height, tall in heart", "short in height tall in heart", "toilet paper", "nobless paper", "paper", "tp", "toilet"]
   },
   {
     "name": "Calm Guide",
@@ -572,7 +572,7 @@
   },
   {
     "name": "I'm a Team Player",
-    "aliases": ["i'm a team player", "im a team player", "tean player", "basketball"]
+    "aliases": ["i'm a team player", "im a team player", "team player", "basketball", "lebron"]
   },
   {
     "name": "Friday the 13th",
