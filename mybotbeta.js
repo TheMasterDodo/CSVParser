@@ -6,6 +6,7 @@ const aliasListSets = require(config.DataFilePath + "/FWTSetAliases.json");
 const aliasListHeroes = require(config.DataFilePath + "/FWTHeroAliases.json");
 const rainbowRotation = require(config.DataFilePath + "/FWTSetRotation.json");
 const heroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
+const itemDataTable = require(config.DataFilePath + "/FWTItemMaxStats.json")
 
     // Declaring constants/loading databases
 
@@ -95,6 +96,13 @@ function findProperty(propertyRequested, effectRequested) {
         if (heroDataTable[i][propertyRequested].includes(effectRequested)) dataString = dataString + "\n" + heroDataTable[i]["Name"];
     }
     return dataString;
+} 
+function findItem(item, level) {
+    var dataString = "";
+    for (var i = 0, itemnum = itemDataTable.length; i < itemnum; i++) {
+        if (itemDataTable[i]["Name"] == item) dataString = itemDataTable[i][level];
+    }
+    return dataString;
 } // End of database functions
 
 //--------------------------------------------------------------------------------------------
@@ -174,12 +182,19 @@ bot.on("message", msg => {
         var effectHeroes = findProperty(effect, "true");
         msg.channel.sendMessage(effectHeroes);
         
-    } else if (msg.content.startsWith(config.prefix + "property")) { // Searches database for the requested property and returns which heroes can cause the effect
+    } else if (msg.content.startsWith(config.prefix + "property")) { // Searches database for the requested property and returns which heroes have the property
         var splitContent = msg.content.split(" ");
         var property = capitalize(splitContent[1]);
         var effect = capitalize(splitContent[2]);
         var propertyHeroes = findProperty(property, effect);
         msg.channel.sendMessage(propertyHeroes);
+        
+    } else if (msg.content.startsWith(config.prefix + "item")) { // Searches database for the requested property and returns which heroes have the property
+        var splitContent = msg.content.split(" ");
+        var itemName = splitContent[1].toLowerCase();
+        var itemLevel = splitContent[2];
+        var itemStats = findItem(itemName, itemLevel);
+        msg.channel.sendMessage(itemStats);
         
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
         msg.guild.member(bot.user).setNickname("A Certain Magical Bot");
