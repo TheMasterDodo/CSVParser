@@ -85,13 +85,6 @@ function findData(alias, isSet) {
 
     return createOutput(data);
 }
-function findEffect(effectRequested) {
-    var dataString = "";
-    for (var i = 0, heronum = heroDataTable.length; i < heronum; i++) {
-        if (heroDataTable[i][effectRequested] == "true") dataString = dataString + "\n" + heroDataTable[i]["Name"];
-    }
-    return dataString;
-}
 function SetsOfTheWeek(WeekRequested) {
     var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
     return createOutput(rainbowData);
@@ -178,7 +171,7 @@ bot.on("message", msg => {
         
     } else if (msg.content.startsWith(config.prefix + "effect")) { // Searches database for the requested effect and returns which heroes can cause the effect
         var effect = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
-        var effectHeroes = findEffect(effect);
+        var effectHeroes = findProperty(effect, "true");
         msg.channel.sendMessage(effectHeroes);
         
     } else if (msg.content.startsWith(config.prefix + "property")) { // Searches database for the requested property and returns which heroes can cause the effect
