@@ -58,7 +58,7 @@ function createOutput(list) {
     for (var property in list) {
         if ((list.hasOwnProperty(property)) && (!flagNames.includes(property))) {
             dataString = dataString + property + ": " + list[property] + "\n";
-        }
+        } 
     }
     return dataString;
 }
@@ -85,10 +85,24 @@ function findData(alias, isSet) {
 
     return createOutput(data);
 }
+function findEffect(effectRequested) {
+    var dataString = "";
+    for (var i = 0, heronum = heroDataTable.length; i < heronum; i++) {
+        if (heroDataTable[i][effectRequested] == "true") dataString = dataString + "\n" + heroDataTable[i]["Name"];
+    }
+    return dataString;
+}
 function SetsOfTheWeek(WeekRequested) {
     var rainbowData = rainbowRotation[rainbowRotation.length - 1 - WeekRequested];
     return createOutput(rainbowData);
-}   // End of database functions
+} 
+function findProperty(propertyRequested, effectRequested) {
+    var dataString = "";
+    for (var i = 0, heronum = heroDataTable.length; i < heronum; i++) {
+        if (heroDataTable[i][propertyRequested].includes(effectRequested)) dataString = dataString + "\n" + heroDataTable[i]["Name"];
+    }
+    return dataString;
+} // End of database functions
 
 //--------------------------------------------------------------------------------------------
 
@@ -103,7 +117,11 @@ function PullOrNot() {
 function findEmojiFromGuildByName(guild, emoji_name) {
     const emoji = guild.emojis.find((emoji) => emoji.name === emoji_name);
     return emoji ? emoji.toString() : emoji_name;
-}   // End of random functions
+}
+function capitalize(inputString) {
+    var outputString = inputString.substr(0, 1).toUpperCase() + inputString.substr(1, inputString.length - 1).toLowerCase();
+    return outputString;
+}  // End of other functions
 
 //--------------------------------------------------------------------------------------------
 
@@ -112,14 +130,26 @@ bot.on("message", msg => {
     if (!msg.content.startsWith(config.prefix)) return; // Checks for prefix
     if (msg.author.bot) return; // Checks if sender is a bot
 
-    if ((msg.channel.id == config.ReservedGeneral) && (msg.content.startsWith(config.prefix + "set") !== true) && (msg.content.startsWith(config.prefix + "hero") !== true) && (msg.content.startsWith(config.prefix + "rainbow") !== true)) {
-        msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
-        return;
+    if (msg.channel.id == config.ReservedGeneral) {
+        const AllowedCommands = ["!set", "!rainbow", "!pull", "!hero", "!stats", "!ping", !"property"];
+        var command = 0;
+        for (var i = 0, cmdnum = AllowedCommands.length; i < cmdnum; i++) {
+            if (!msg.content.startsWith(AllowedCommands[i])) {
+                command = command++;
+                if (command == 6) {
+                    msg.channel.sendMessage(msg.content + " command is not allowed here. Please use it in " + config.ReservedCode + " or " + config.ReservedCasino);
+                    return;
+                }
+            }
+        }
     }   // Server specific commands
 
 
     if (msg.content.startsWith(config.prefix + "ping")) msg.channel.sendMessage("pong!");
     // Bot testing
+
+    else if (msg.content.startsWith(config.prefix+ "help"))  msg.channel.sendMessage(config.Help);
+    // Help command
     
     else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様♥, \nDo you want dinner or a shower or \*blushes\* me?");
     else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("spades"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様 :anger:, \nWell, I don't have much of a choice. I guess I'll end this here since I got ~~Shido~~ Spades-san to pat my head today.----right, all of me?");
@@ -145,6 +175,18 @@ bot.on("message", msg => {
         var heroStats = findData(heroRequested.toLowerCase(), false);
         if (heroStats != "nosuchdata") msg.channel.sendMessage(heroStats);
         else msg.channel.sendMessage("Unknown Hero!");
+        
+    } else if (msg.content.startsWith(config.prefix + "effect")) { // Searches database for the requested effect and returns which heroes can cause the effect
+        var effect = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
+        var effectHeroes = findEffect(effect);
+        msg.channel.sendMessage(effectHeroes);
+        
+    } else if (msg.content.startsWith(config.prefix + "property")) { // Searches database for the requested property and returns which heroes can cause the effect
+        var splitContent = msg.content.split(" ");
+        var property = capitalize(splitContent[1]);
+        var effect = capitalize(splitContent[2]);
+        var propertyHeroes = findProperty(property, effect);
+        msg.channel.sendMessage(propertyHeroes);
         
     } else if (msg.content.startsWith(config.prefix + "nameset") && (msg.author.id == config.ownerID)) {
         msg.guild.member(bot.user).setNickname("A Certain Magical Bot");
