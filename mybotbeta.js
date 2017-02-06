@@ -99,7 +99,7 @@ function SetsOfTheWeek(WeekRequested) {
 function findProperty(propertyRequested, effectRequested) {
     var dataString = "";
     for (var i = 0, heronum = heroDataTable.length; i < heronum; i++) {
-        if (heroDataTable[i][propertyRequested] == effectRequested) dataString = dataString + "\n" + heroDataTable[i]["Name"];
+        if (heroDataTable[i][propertyRequested].includes(effectRequested)) dataString = dataString + "\n" + heroDataTable[i]["Name"];
     }
     return dataString;
 } // End of database functions
@@ -120,7 +120,6 @@ function findEmojiFromGuildByName(guild, emoji_name) {
 }
 function capitalize(inputString) {
     var outputString = inputString.substr(0, 1).toUpperCase() + inputString.substr(1, inputString.length - 1).toLowerCase();
-    console.log(outputString);
     return outputString;
 }  // End of other functions
 
@@ -148,6 +147,9 @@ bot.on("message", msg => {
 
     if (msg.content.startsWith(config.prefix + "ping")) msg.channel.sendMessage("pong!");
     // Bot testing
+
+    else if (msg.content.startsWith(config.prefix+ "help"))  msg.channel.sendMessage(config.Help);
+    // Help command
     
     else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("maid"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様♥, \nDo you want dinner or a shower or \*blushes\* me?");
     else if (msg.content.startsWith(config.prefix + "tadaima") && (msg.content.includes("spades"))) msg.channel.sendMessage("おかえりなさいませ！ご主人様 :anger:, \nWell, I don't have much of a choice. I guess I'll end this here since I got ~~Shido~~ Spades-san to pat my head today.----right, all of me?");
