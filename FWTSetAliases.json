@@ -71,7 +71,7 @@
     "aliases": ["i'm a cat", "cat"]
   },
   {
-    "name": "Here comes the gnome!",
+    "name": "Here Comes The Gnome!",
     "aliases": ["here comes the gnome!", "gnome"]
   },
   {
@@ -120,7 +120,7 @@
   },
   {
     "name": "Cave Chaser",
-    "aliases": ["cave chaser"]
+    "aliases": ["cave chaser", "cave"]
   },
   {
     "name": "Lumen Hymn",
@@ -156,7 +156,7 @@
   },
   {
     "name": "Legion Banner",
-    "aliases": ["legion banner"]
+    "aliases": ["legion banner", "legion", "banner"]
   },
   {
     "name": "Super Ranger: Red",
@@ -196,7 +196,7 @@
   },
   {
     "name": "Serial Killer",
-    "aliases": ["serial killer"]
+    "aliases": ["serial killer", "killer"]
   },
   {
     "name": "",
@@ -312,7 +312,7 @@
   },
   {
     "name": "God's Judgement",
-    "aliases": ["god's judgement", "god judgement"]
+    "aliases": ["god's judgement", "god judgement", "noblesse belle", "noblesse support"]
   },
   {
     "name": "Sweet and Scary Chocolate Warrior",
@@ -348,7 +348,7 @@
   },
   {
     "name": "Token of Return",
-    "aliases": ["token of return"]
+    "aliases": ["token of return", "return"]
   },
   {
     "name": "Mad Guitarist",
@@ -424,7 +424,7 @@
   },
   {
     "name": "Austere Noble",
-    "aliases": ["austere noble"]
+    "aliases": ["austere noble", "austere"]
   },
   {
     "name": "Iron Fortress",
@@ -440,7 +440,7 @@
   },
   {
     "name": "Sunset Sheriff",
-    "aliases": ["sunset sheriff", "sheriff", "ss"]
+    "aliases": ["sunset sheriff", "sheriff", "ss", "sunset"]
   },
   {
     "name": "Ancestor's Voice",
@@ -476,11 +476,11 @@
   },
   {
     "name": "New Elian Kingdom Cavalry",
-    "aliases": ["new elian kingdom cavalry", "new elian kingdom", "new elian cavalry", "new elian", "nec"]
+    "aliases": ["new elian kingdom cavalry", "new elian kingdom", "new elian cavalry", "new elian", "nec", "nekc"]
   },
   {
     "name": "Super Ranger: Black",
-    "aliases": ["super ranger: black", "black ranger"]
+    "aliases": ["super ranger: black", "black ranger", "black"]
   },
   {
     "name": "Persona's Trick",
@@ -504,7 +504,7 @@
   },
   {
     "name": "Difference between You and Me",
-    "aliases": ["difference between you and me"]
+    "aliases": ["difference between you and me", "difference"]
   },
   {
     "name": "Magical Marksman",
@@ -520,11 +520,11 @@
   },
   {
     "name": "Omniscient and Omnipotent",
-    "aliases": ["omniscient and omnipotent", "omni", "o&o"]
+    "aliases": ["omniscient and omnipotent", "omni", "o&o", "o and o", "oo", "0&0"]
   },
   {
     "name": "Eldrika's Trinity",
-    "aliases": ["eldrika's trinity", "eldrika", "trinity", "et"]
+    "aliases": ["eldrika's trinity", "eldrika", "trinity", "et", "eldrikas"]
   },
   {
     "name": "Raboff's Great Strategy",
@@ -540,7 +540,7 @@
   },
   {
     "name": "Calm Guide",
-    "aliases": ["calm guide", "calm"]
+    "aliases": ["calm guide", "calm", "guide"]
   },
   {
     "name": "Pirate of Pirates",
@@ -564,11 +564,11 @@
   },
   {
     "name": "Ultimate Weapon Gold Tiger",
-    "aliases": ["ultimate weapon gold tiger", "ultimate gold tiger", "gold tiger", "ugt", "gt"]
+    "aliases": ["ultimate weapon gold tiger", "ultimate gold tiger", "gold tiger", "ugt", "gt", "tiger"]
   },
   {
     "name": "Traveler from the East",
-    "aliases": ["traveler from the east"]
+    "aliases": ["traveler from the east", "traveler"]
   },
   {
     "name": "I'm a Team Player",
@@ -584,11 +584,11 @@
   },
   {
     "name": "Revelation of the Great Universe",
-    "aliases": ["revelation of the great universe", "revelation", "universe"]
+    "aliases": ["revelation of the great universe", "revelation", "universe", "fake klein", "walmart klein", "cheap klein"]
   },
   {
     "name": "Hellish Flame's Guide",
-    "aliases": ["hellish flame's guide", "hellish flame guide", "hellish flame"]
+    "aliases": ["hellish flame's guide", "hellish flame guide", "hellish flame", "hellflame", "hell flame"]
   },
   {
     "name": "Sione's Ominous Prophecy",
@@ -596,6 +596,6 @@
   },
   {
     "name": "White Knight's Oath",
-    "aliases": ["white knight's oath", "white knight oath", "white knight"]
+    "aliases": ["white knight's oath", "white knight oath", "white knight", "wko"]
   }
 ]

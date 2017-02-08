@@ -6,7 +6,7 @@ const aliasListSets = require(config.DataFilePath + "/FWTSetAliases.json");
 const aliasListHeroes = require(config.DataFilePath + "/FWTHeroAliases.json");
 const rainbowRotation = require(config.DataFilePath + "/FWTSetRotation.json");
 const heroDataTable = require(config.DataFilePath + "/FWTHeroStats.json");
-const itemDataTable = require(config.DataFilePath + "/FWTItemMaxStats.json")
+const itemDataTable = require(config.DataFilePath + "/FWTItemMaxStats.json");
 
     // Declaring constants/loading databases
 
