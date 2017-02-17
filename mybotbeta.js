@@ -256,7 +256,7 @@ bot.on("message", msg => {
 });
 bot.on("ready", () => {
     console.log("I am ready!");
-    bot.user.setGame("with TOD Hell Sets");
+    bot.user.setGame("spamming Twins nerf requests");
 });
 bot.on("error", e => { console.error(e); });
 bot.login(config.token);
