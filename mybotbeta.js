@@ -184,7 +184,7 @@ bot.on("message", msg => {
         var splitContent = msg.content.split(" ");
         var pulls = "";
         var totalPull = "";
-        if (splitContent.length > 1) {
+        if (splitContent.length = 2) {
             for (var i = 0; i < splitContent[1]; i++) {
                 pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
                 totalPull = pulls.join(" ") + "\n" + totalPull;
@@ -194,11 +194,7 @@ bot.on("message", msg => {
             pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
             msg.channel.sendMessage(pulls.join(" "));
         }
-
-    } else if (msg.content.startsWith(config.prefix + "ogwhale")) { // 10x pull
-        const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
-        msg.channel.sendMessage(pulls.join(" "));
-
+        
     } else if (msg.content.startsWith(config.prefix + "set")) { // Searches database for set info
         var setName = msg.content.slice(msg.content.indexOf(" ", 0) + 1, msg.content.length);
         var setInfo = findData(setName, true);
