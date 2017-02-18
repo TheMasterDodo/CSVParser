@@ -181,6 +181,21 @@ bot.on("message", msg => {
     else if (msg.content.startsWith(config.prefix + "pull")) msg.channel.sendFile(PullOrNot()); // 50/50 pull or no
     
     else if (msg.content.startsWith(config.prefix + "whale")) { // 10x pull
+        var splitContent = msg.content.split(" ");
+        var pulls = "";
+        var totalPull = "";
+        if (splitContent.length > 1) {
+            for (var i = 0; i < splitContent[1]; i++) {
+                pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
+                totalPull = pulls.join(" ") + "\n" + totalPull;
+            }
+            msg.channel.sendMessage(totalPull);
+        } else {
+            pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
+            msg.channel.sendMessage(pulls.join(" "));
+        }
+
+    } else if (msg.content.startsWith(config.prefix + "ogwhale")) { // 10x pull
         const pulls = coocooPull10().map((emoji_name) => findEmojiFromGuildByName(msg.guild, emoji_name));
         msg.channel.sendMessage(pulls.join(" "));
 
