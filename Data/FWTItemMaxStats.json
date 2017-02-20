@@ -137,16 +137,16 @@
     },{
     "Name": "pnecklace",
     "1": "Attack +197, Mastery +1467",
-    "2": "Attack +",
-    "3": "",
-    "4": "",
-    "5": ""
+    "2": "Attack +467, Mastery +1744",
+    "3": "Attack +808, Mastery +2019",
+    "4": "Attack +, Mastery +",
+    "5": "Attack +1858, Mastery +2569"
     },{
     "Name": "pbrooch",
-    "1": "",
-    "2": "",
-    "3": "",
-    "4": "",
-    "5": ""
+    "1": "HP +749, Defense +277",
+    "2": "HP +1818, Defense +346",
+    "3": "HP +3167, Defense +421",
+    "4": "HP +4915, Defense +501",
+    "5": "HP +7279, Defense +583"
     }
 ]
